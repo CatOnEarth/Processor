@@ -1,0 +1,86 @@
+PUSH 1024
+POP [1000]
+PUSH 30
+PUSH 30
+POP ax; x centre
+POP bx; y centre
+PUSH 9
+POP [55]; radius
+CALL PrintCircle
+GRAPH
+YU:
+JMP YU
+HLT
+
+PrintCircle:
+    PUSH 0
+    POP [0];color black
+    PUSH 1
+    POP [1];no color
+
+    PUSH 0
+    POP [2];x coord
+    PUSH 0
+    POP [3];y coord
+
+    PUSH 60
+    POP [4]; max x window
+    PUSH 60
+    POP [5]; max y window
+
+    PUSH 0
+    POP [6];cur x
+    PUSH 0
+    POP [7];cur y
+RepeatX:	
+    CALL PereborX
+    PUSH [6]
+    PUSH 1
+    ADD
+    POP [6]
+    PUSH [6]
+    PUSH [4]
+    JBE RepeatX
+    PUSH [7]
+    PUSH 1
+    ADD
+    POP [7]
+    PUSH 0
+    POP [6]
+    PUSH [7]
+    PUSH [5]
+    JBE RepeatX
+    RET
+
+
+PereborX:
+    PUSH ax
+    PUSH [6]
+    SUB
+    POP [30]
+    PUSH [30]
+    PUSH [30]
+    MUL
+    PUSH [7]
+    PUSH [7]
+    MUL
+    SUB
+    PUSH [55]
+    JA HG
+    CALL SetColorBlack
+    HG:
+    RET
+
+
+SetColorBlack:
+    PUSH [6]
+    PUSH [4]
+    PUSH [7]
+    MUL
+    ADD
+    PUSH [1000]
+    ADD
+    POP cx
+    PUSH 1
+    POP [cx]
+    RET

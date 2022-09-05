@@ -1,0 +1,298 @@
+\hypertarget{stack__lib_8cpp}{}\doxysection{processor/cpu/stack\+\_\+lib/stack\+\_\+lib.cpp File Reference}
+\label{stack__lib_8cpp}\index{processor/cpu/stack\_lib/stack\_lib.cpp@{processor/cpu/stack\_lib/stack\_lib.cpp}}
+{\ttfamily \#include \char`\"{}stack\+\_\+lib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../base\+\_\+lib/base\+\_\+lib.\+h\char`\"{}}\newline
+Include dependency graph for stack\+\_\+lib.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8cpp_adbb82e6e8bd649843ce849016e336737}{Stack\+Constructor\+\_\+}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+bool \mbox{\hyperlink{stack__lib_8cpp_a396b1cf1481e42e4016cea85946e4c33}{Check\+Is\+Was\+Already\+Constract}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8cpp_a2dfa3bf40e4c0a801fb726753fcd262c}{Stack\+Destructor}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8cpp_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} val)
+\item 
+\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} \mbox{\hyperlink{stack__lib_8cpp_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} \mbox{\hyperlink{stack__lib_8cpp_a5dd117afa63e81cc1a4c848539244ad2}{Stack\+Top}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8cpp_a44b2c6049b3e7a303080602658b87419}{Stack\+Data\+Allocation}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+void \mbox{\hyperlink{stack__lib_8cpp_a4a20225eac6637302423319ad4e5ce79}{Data\+Poison\+Elems\+Inizialize}} (\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$start, \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$end)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8cpp_a5380e68d1c151f4c92f3261455ecfee1}{Stack\+Type\+OK}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$)
+\item 
+void \mbox{\hyperlink{stack__lib_8cpp_aa40a56ca0e905cf3b8696cc9f9bd045c}{Stack\+Abort}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+const char $\ast$ \mbox{\hyperlink{stack__lib_8cpp_ad27fb496f979be96d1376ae375c9f097}{Stack\+Get\+Text\+Error}} (\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err)
+\item 
+void \mbox{\hyperlink{stack__lib_8cpp_a29a97f9c2b81910070aa2136579802c8}{Stack\+Dump}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stack__lib_8cpp_a396b1cf1481e42e4016cea85946e4c33}\label{stack__lib_8cpp_a396b1cf1481e42e4016cea85946e4c33}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!CheckIsWasAlreadyConstract@{CheckIsWasAlreadyConstract}}
+\index{CheckIsWasAlreadyConstract@{CheckIsWasAlreadyConstract}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{CheckIsWasAlreadyConstract()}{CheckIsWasAlreadyConstract()}}
+{\footnotesize\ttfamily bool Check\+Is\+Was\+Already\+Constract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a396b1cf1481e42e4016cea85946e4c33_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a396b1cf1481e42e4016cea85946e4c33_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a4a20225eac6637302423319ad4e5ce79}\label{stack__lib_8cpp_a4a20225eac6637302423319ad4e5ce79}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!DataPoisonElemsInizialize@{DataPoisonElemsInizialize}}
+\index{DataPoisonElemsInizialize@{DataPoisonElemsInizialize}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{DataPoisonElemsInizialize()}{DataPoisonElemsInizialize()}}
+{\footnotesize\ttfamily void Data\+Poison\+Elems\+Inizialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$}]{start,  }\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$}]{end }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00240}{240}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a4a20225eac6637302423319ad4e5ce79_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a4a20225eac6637302423319ad4e5ce79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_aa40a56ca0e905cf3b8696cc9f9bd045c}\label{stack__lib_8cpp_aa40a56ca0e905cf3b8696cc9f9bd045c}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackAbort@{StackAbort}}
+\index{StackAbort@{StackAbort}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackAbort()}{StackAbort()}}
+{\footnotesize\ttfamily void Stack\+Abort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00437}{437}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_aa40a56ca0e905cf3b8696cc9f9bd045c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_aa40a56ca0e905cf3b8696cc9f9bd045c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_adbb82e6e8bd649843ce849016e336737}\label{stack__lib_8cpp_adbb82e6e8bd649843ce849016e336737}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackConstructor\_@{StackConstructor\_}}
+\index{StackConstructor\_@{StackConstructor\_}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackConstructor\_()}{StackConstructor\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Constructor\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_adbb82e6e8bd649843ce849016e336737_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a44b2c6049b3e7a303080602658b87419}\label{stack__lib_8cpp_a44b2c6049b3e7a303080602658b87419}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackDataAllocation@{StackDataAllocation}}
+\index{StackDataAllocation@{StackDataAllocation}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackDataAllocation()}{StackDataAllocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Data\+Allocation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a44b2c6049b3e7a303080602658b87419_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{stack__lib_8cpp_a44b2c6049b3e7a303080602658b87419_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a2dfa3bf40e4c0a801fb726753fcd262c}\label{stack__lib_8cpp_a2dfa3bf40e4c0a801fb726753fcd262c}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackDestructor@{StackDestructor}}
+\index{StackDestructor@{StackDestructor}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackDestructor()}{StackDestructor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Destructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a2dfa3bf40e4c0a801fb726753fcd262c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{stack__lib_8cpp_a2dfa3bf40e4c0a801fb726753fcd262c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a29a97f9c2b81910070aa2136579802c8}\label{stack__lib_8cpp_a29a97f9c2b81910070aa2136579802c8}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackDump@{StackDump}}
+\index{StackDump@{StackDump}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackDump()}{StackDump()}}
+{\footnotesize\ttfamily void Stack\+Dump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00516}{516}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a29a97f9c2b81910070aa2136579802c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a29a97f9c2b81910070aa2136579802c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_ad27fb496f979be96d1376ae375c9f097}\label{stack__lib_8cpp_ad27fb496f979be96d1376ae375c9f097}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackGetTextError@{StackGetTextError}}
+\index{StackGetTextError@{StackGetTextError}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackGetTextError()}{StackGetTextError()}}
+{\footnotesize\ttfamily const char $\ast$ Stack\+Get\+Text\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}}}]{err }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00442}{442}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_ad27fb496f979be96d1376ae375c9f097_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_aeeb4757422de12a9db0c651d3d097cf4}\label{stack__lib_8cpp_aeeb4757422de12a9db0c651d3d097cf4}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackPop@{StackPop}}
+\index{StackPop@{StackPop}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackPop()}{StackPop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} Stack\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_aeeb4757422de12a9db0c651d3d097cf4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a3ac4b4a7e3a4a6cb57148800815090e6}\label{stack__lib_8cpp_a3ac4b4a7e3a4a6cb57148800815090e6}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackPush@{StackPush}}
+\index{StackPush@{StackPush}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackPush()}{StackPush()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}}}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a3ac4b4a7e3a4a6cb57148800815090e6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a5dd117afa63e81cc1a4c848539244ad2}\label{stack__lib_8cpp_a5dd117afa63e81cc1a4c848539244ad2}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackTop@{StackTop}}
+\index{StackTop@{StackTop}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackTop()}{StackTop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} Stack\+Top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8cpp_a5dd117afa63e81cc1a4c848539244ad2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8cpp_a5380e68d1c151f4c92f3261455ecfee1}\label{stack__lib_8cpp_a5380e68d1c151f4c92f3261455ecfee1}} 
+\index{stack\_lib.cpp@{stack\_lib.cpp}!StackTypeOK@{StackTypeOK}}
+\index{StackTypeOK@{StackTypeOK}!stack\_lib.cpp@{stack\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{StackTypeOK()}{StackTypeOK()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Type\+OK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00258}{258}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+

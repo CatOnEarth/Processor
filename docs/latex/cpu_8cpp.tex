@@ -1,0 +1,173 @@
+\hypertarget{cpu_8cpp}{}\doxysection{processor/cpu/cpu.cpp File Reference}
+\label{cpu_8cpp}\index{processor/cpu/cpu.cpp@{processor/cpu/cpu.cpp}}
+{\ttfamily \#include \char`\"{}cpu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../base\+\_\+lib/base\+\_\+lib.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../header/header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../commands/commands.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../logger/logger.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../commands/cmd\+\_\+def.\+h\char`\"{}}\newline
+Include dependency graph for cpu.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cpu_8cpp_a4d45d41476c3209039e2d67ed45cadcc}{Init\+Asm\+Code}}(cpu,  filename\+\_\+assembler)~\mbox{\hyperlink{cpu_8cpp_af3f39adc689be30b82945c8ece07c002}{Init\+Asm\+Code\+\_\+\+\_\+}}(cpu, filename\+\_\+assembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{cpu_8cpp_ab2e7cf29f3725a158fb22dd69a1f2f35}{DEF\+\_\+\+CMD}}(cmd\+\_\+in,  num\+\_\+args,  is\+\_\+leftside\+\_\+arg,  ident\+\_\+of\+\_\+type,  command\+\_\+action)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{cpu_8cpp_af3f39adc689be30b82945c8ece07c002}{Init\+Asm\+Code\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$cpu, const char $\ast$filename\+\_\+assembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{cpu_8cpp_a8bf887a4cb4b9b66116be25bf6587a47}{CPUConstructor}} (\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$cpu)
+\item 
+int \mbox{\hyperlink{cpu_8cpp_a1a0655699412123c1afe42d4b6964262}{CPUDestructor}} (\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$cpu)
+\item 
+int \mbox{\hyperlink{cpu_8cpp_aff23279300e78c1a7e6e5cd8aea04755}{Execute\+CPU}} (const char $\ast$filename\+\_\+assembler)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{cpu_8cpp_a6d4e16690699365290e5d1bbef8bd07b}{MAKE\+\_\+\+NULL\+\_\+\+FLAGS\+\_\+\+BYTE}} = 31
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cpu_8cpp_ab2e7cf29f3725a158fb22dd69a1f2f35}\label{cpu_8cpp_ab2e7cf29f3725a158fb22dd69a1f2f35}} 
+\index{cpu.cpp@{cpu.cpp}!DEF\_CMD@{DEF\_CMD}}
+\index{DEF\_CMD@{DEF\_CMD}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{DEF\_CMD}{DEF\_CMD}}
+{\footnotesize\ttfamily \#define DEF\+\_\+\+CMD(\begin{DoxyParamCaption}\item[{}]{cmd\+\_\+in,  }\item[{}]{num\+\_\+args,  }\item[{}]{is\+\_\+leftside\+\_\+arg,  }\item[{}]{ident\+\_\+of\+\_\+type,  }\item[{}]{command\+\_\+action }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (((\textcolor{keywordtype}{int})cpu.code[cpu.ip] \& \mbox{\hyperlink{cpu_8cpp_a6d4e16690699365290e5d1bbef8bd07b}{MAKE\_NULL\_FLAGS\_BYTE}}) == (\textcolor{keywordtype}{int})PROCESSOR\_COMMANDS::CMD\_\#\#cmd\_in) \{   \(\backslash\)}
+\DoxyCodeLine{        command\_action                                                                                    \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+\mbox{\Hypertarget{cpu_8cpp_a4d45d41476c3209039e2d67ed45cadcc}\label{cpu_8cpp_a4d45d41476c3209039e2d67ed45cadcc}} 
+\index{cpu.cpp@{cpu.cpp}!InitAsmCode@{InitAsmCode}}
+\index{InitAsmCode@{InitAsmCode}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{InitAsmCode}{InitAsmCode}}
+{\footnotesize\ttfamily \#define Init\+Asm\+Code(\begin{DoxyParamCaption}\item[{}]{cpu,  }\item[{}]{filename\+\_\+assembler }\end{DoxyParamCaption})~\mbox{\hyperlink{cpu_8cpp_af3f39adc689be30b82945c8ece07c002}{Init\+Asm\+Code\+\_\+\+\_\+}}(cpu, filename\+\_\+assembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpu_8cpp_a8bf887a4cb4b9b66116be25bf6587a47}\label{cpu_8cpp_a8bf887a4cb4b9b66116be25bf6587a47}} 
+\index{cpu.cpp@{cpu.cpp}!CPUConstructor@{CPUConstructor}}
+\index{CPUConstructor@{CPUConstructor}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{CPUConstructor()}{CPUConstructor()}}
+{\footnotesize\ttfamily int CPUConstructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$}]{cpu }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{cpu_8cpp_a8bf887a4cb4b9b66116be25bf6587a47_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8cpp_a8bf887a4cb4b9b66116be25bf6587a47_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cpu_8cpp_a1a0655699412123c1afe42d4b6964262}\label{cpu_8cpp_a1a0655699412123c1afe42d4b6964262}} 
+\index{cpu.cpp@{cpu.cpp}!CPUDestructor@{CPUDestructor}}
+\index{CPUDestructor@{CPUDestructor}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{CPUDestructor()}{CPUDestructor()}}
+{\footnotesize\ttfamily int CPUDestructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$}]{cpu }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00063}{63}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8cpp_a1a0655699412123c1afe42d4b6964262_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cpu_8cpp_aff23279300e78c1a7e6e5cd8aea04755}\label{cpu_8cpp_aff23279300e78c1a7e6e5cd8aea04755}} 
+\index{cpu.cpp@{cpu.cpp}!ExecuteCPU@{ExecuteCPU}}
+\index{ExecuteCPU@{ExecuteCPU}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{ExecuteCPU()}{ExecuteCPU()}}
+{\footnotesize\ttfamily int Execute\+CPU (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename\+\_\+assembler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8cpp_aff23279300e78c1a7e6e5cd8aea04755_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{cpu_8cpp_aff23279300e78c1a7e6e5cd8aea04755_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cpu_8cpp_af3f39adc689be30b82945c8ece07c002}\label{cpu_8cpp_af3f39adc689be30b82945c8ece07c002}} 
+\index{cpu.cpp@{cpu.cpp}!InitAsmCode\_\_@{InitAsmCode\_\_}}
+\index{InitAsmCode\_\_@{InitAsmCode\_\_}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{InitAsmCode\_\_()}{InitAsmCode\_\_()}}
+{\footnotesize\ttfamily size\+\_\+t Init\+Asm\+Code\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$}]{cpu,  }\item[{const char $\ast$}]{filename\+\_\+assembler,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{cpu_8cpp_af3f39adc689be30b82945c8ece07c002_cgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cpu_8cpp_a6d4e16690699365290e5d1bbef8bd07b}\label{cpu_8cpp_a6d4e16690699365290e5d1bbef8bd07b}} 
+\index{cpu.cpp@{cpu.cpp}!MAKE\_NULL\_FLAGS\_BYTE@{MAKE\_NULL\_FLAGS\_BYTE}}
+\index{MAKE\_NULL\_FLAGS\_BYTE@{MAKE\_NULL\_FLAGS\_BYTE}!cpu.cpp@{cpu.cpp}}
+\doxysubsubsection{\texorpdfstring{MAKE\_NULL\_FLAGS\_BYTE}{MAKE\_NULL\_FLAGS\_BYTE}}
+{\footnotesize\ttfamily const int MAKE\+\_\+\+NULL\+\_\+\+FLAGS\+\_\+\+BYTE = 31}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+

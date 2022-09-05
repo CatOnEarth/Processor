@@ -1,0 +1,105 @@
+\hypertarget{cpu_8h}{}\doxysection{processor/cpu/cpu.h File Reference}
+\label{cpu_8h}\index{processor/cpu/cpu.h@{processor/cpu/cpu.h}}
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}../types/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../constants/constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graphics/graphics.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stack\+\_\+lib/stack\+\_\+lib.\+h\char`\"{}}\newline
+Include dependency graph for cpu.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{cpu_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_r_e_g_i_s_t_e_r}{REGISTER}}
+\item 
+struct \mbox{\hyperlink{struct_r_a_m}{RAM}}
+\item 
+struct \mbox{\hyperlink{struct_c_p_u}{CPU}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cpu_8h_aff23279300e78c1a7e6e5cd8aea04755}{Execute\+CPU}} (const char $\ast$filename\+\_\+assembler)
+\item 
+size\+\_\+t \mbox{\hyperlink{cpu_8h_a2c9add0d8a835785e178445a106c1848}{Init\+Asm\+Code}} (\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$cpu, const char $\ast$filename\+\_\+assembler)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{cpu_8h_ac8f1106a8eeb6f14f8476907bbe8e49a}{RAM\+\_\+\+BYTE}} = 1024
+\item 
+const int \mbox{\hyperlink{cpu_8h_a74185e24328ce189b47cdc23186ac1f2}{RAM\+\_\+\+VIDEO\+\_\+\+BYTE}} = \mbox{\hyperlink{graphics_8h_a137e2b35e08d7213f4fdb9092857ea3a}{HEIGHT\+\_\+\+WINDOW}} $\ast$ \mbox{\hyperlink{graphics_8h_aa9f393fc916f1f8d92cd82ca0a5a0f4c}{WIDTH\+\_\+\+WINDOW}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cpu_8h_aff23279300e78c1a7e6e5cd8aea04755}\label{cpu_8h_aff23279300e78c1a7e6e5cd8aea04755}} 
+\index{cpu.h@{cpu.h}!ExecuteCPU@{ExecuteCPU}}
+\index{ExecuteCPU@{ExecuteCPU}!cpu.h@{cpu.h}}
+\doxysubsubsection{\texorpdfstring{ExecuteCPU()}{ExecuteCPU()}}
+{\footnotesize\ttfamily int Execute\+CPU (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename\+\_\+assembler }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{cpu_8cpp_source}{cpu.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cpu_8h_aff23279300e78c1a7e6e5cd8aea04755_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{cpu_8h_aff23279300e78c1a7e6e5cd8aea04755_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{cpu_8h_a2c9add0d8a835785e178445a106c1848}\label{cpu_8h_a2c9add0d8a835785e178445a106c1848}} 
+\index{cpu.h@{cpu.h}!InitAsmCode@{InitAsmCode}}
+\index{InitAsmCode@{InitAsmCode}!cpu.h@{cpu.h}}
+\doxysubsubsection{\texorpdfstring{InitAsmCode()}{InitAsmCode()}}
+{\footnotesize\ttfamily size\+\_\+t Init\+Asm\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_p_u}{CPU}} $\ast$}]{cpu,  }\item[{const char $\ast$}]{filename\+\_\+assembler }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{cpu_8h_ac8f1106a8eeb6f14f8476907bbe8e49a}\label{cpu_8h_ac8f1106a8eeb6f14f8476907bbe8e49a}} 
+\index{cpu.h@{cpu.h}!RAM\_BYTE@{RAM\_BYTE}}
+\index{RAM\_BYTE@{RAM\_BYTE}!cpu.h@{cpu.h}}
+\doxysubsubsection{\texorpdfstring{RAM\_BYTE}{RAM\_BYTE}}
+{\footnotesize\ttfamily const int RAM\+\_\+\+BYTE = 1024}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8h_source_l00030}{30}} of file \mbox{\hyperlink{cpu_8h_source}{cpu.\+h}}.
+
+\mbox{\Hypertarget{cpu_8h_a74185e24328ce189b47cdc23186ac1f2}\label{cpu_8h_a74185e24328ce189b47cdc23186ac1f2}} 
+\index{cpu.h@{cpu.h}!RAM\_VIDEO\_BYTE@{RAM\_VIDEO\_BYTE}}
+\index{RAM\_VIDEO\_BYTE@{RAM\_VIDEO\_BYTE}!cpu.h@{cpu.h}}
+\doxysubsubsection{\texorpdfstring{RAM\_VIDEO\_BYTE}{RAM\_VIDEO\_BYTE}}
+{\footnotesize\ttfamily const int RAM\+\_\+\+VIDEO\+\_\+\+BYTE = \mbox{\hyperlink{graphics_8h_a137e2b35e08d7213f4fdb9092857ea3a}{HEIGHT\+\_\+\+WINDOW}} $\ast$ \mbox{\hyperlink{graphics_8h_aa9f393fc916f1f8d92cd82ca0a5a0f4c}{WIDTH\+\_\+\+WINDOW}}}
+
+
+
+Definition at line \mbox{\hyperlink{cpu_8h_source_l00031}{31}} of file \mbox{\hyperlink{cpu_8h_source}{cpu.\+h}}.
+

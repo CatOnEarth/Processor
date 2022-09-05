@@ -1,0 +1,116 @@
+\hypertarget{base__lib_8h}{}\doxysection{processor/base\+\_\+lib/base\+\_\+lib.h File Reference}
+\label{base__lib_8h}\index{processor/base\_lib/base\_lib.h@{processor/base\_lib/base\_lib.h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+Include dependency graph for base\+\_\+lib.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{base__lib_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{base__lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}
+\item 
+struct \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t____}{LOCATION\+\_\+\+VAR\+\_\+\+STRUCT\+\_\+\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}~\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\+\_\+\+VAR\+\_\+\+\_\+}}(var)~\#var, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{base__lib_8h_a21cda9b3355dbdf7f65652c8ed7a3035}{COMPLETE\+\_\+\+STR\+\_\+\+\_\+}}(...)~\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+
+\item 
+\#define \mbox{\hyperlink{base__lib_8h_a34d991252a422ef87f9cd88967579522}{NAME\+\_\+\+VAR\+\_\+\+TO\+\_\+\+STR}}(var)~\#var
+\item 
+\#define \mbox{\hyperlink{base__lib_8h_ad2a439fd13847834320d78480aa13458}{COMPLETE\+\_\+\+STR\+\_\+\+VAR\+\_\+\+\_\+}}(str,  var)~str \#var
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+long long \mbox{\hyperlink{base__lib_8h_a4b4fbcdf65d0a7acc52eadd0083fe672}{get\+File\+Size}} (FILE $\ast$file)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{base__lib_8h_a21cda9b3355dbdf7f65652c8ed7a3035}\label{base__lib_8h_a21cda9b3355dbdf7f65652c8ed7a3035}} 
+\index{base\_lib.h@{base\_lib.h}!COMPLETE\_STR\_\_@{COMPLETE\_STR\_\_}}
+\index{COMPLETE\_STR\_\_@{COMPLETE\_STR\_\_}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{COMPLETE\_STR\_\_}{COMPLETE\_STR\_\_}}
+{\footnotesize\ttfamily \#define COMPLETE\+\_\+\+STR\+\_\+\+\_\+(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{base__lib_8h_source_l00022}{22}} of file \mbox{\hyperlink{base__lib_8h_source}{base\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{base__lib_8h_ad2a439fd13847834320d78480aa13458}\label{base__lib_8h_ad2a439fd13847834320d78480aa13458}} 
+\index{base\_lib.h@{base\_lib.h}!COMPLETE\_STR\_VAR\_\_@{COMPLETE\_STR\_VAR\_\_}}
+\index{COMPLETE\_STR\_VAR\_\_@{COMPLETE\_STR\_VAR\_\_}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{COMPLETE\_STR\_VAR\_\_}{COMPLETE\_STR\_VAR\_\_}}
+{\footnotesize\ttfamily \#define COMPLETE\+\_\+\+STR\+\_\+\+VAR\+\_\+\+\_\+(\begin{DoxyParamCaption}\item[{}]{str,  }\item[{}]{var }\end{DoxyParamCaption})~str \#var}
+
+
+
+Definition at line \mbox{\hyperlink{base__lib_8h_source_l00024}{24}} of file \mbox{\hyperlink{base__lib_8h_source}{base\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}\label{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}} 
+\index{base\_lib.h@{base\_lib.h}!LOCATION\_\_@{LOCATION\_\_}}
+\index{LOCATION\_\_@{LOCATION\_\_}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{LOCATION\_\_}{LOCATION\_\_}}
+{\footnotesize\ttfamily \#define LOCATION\+\_\+\+\_\+~\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{base__lib_8h_source_l00020}{20}} of file \mbox{\hyperlink{base__lib_8h_source}{base\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}\label{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}} 
+\index{base\_lib.h@{base\_lib.h}!LOCATION\_VAR\_\_@{LOCATION\_VAR\_\_}}
+\index{LOCATION\_VAR\_\_@{LOCATION\_VAR\_\_}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{LOCATION\_VAR\_\_}{LOCATION\_VAR\_\_}}
+{\footnotesize\ttfamily \#define LOCATION\+\_\+\+VAR\+\_\+\+\_\+(\begin{DoxyParamCaption}\item[{}]{var }\end{DoxyParamCaption})~\#var, \+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \+\_\+\+\_\+func\+\_\+\+\_\+, \+\_\+\+\_\+\+LINE\+\_\+\+\_\+}
+
+
+
+Definition at line \mbox{\hyperlink{base__lib_8h_source_l00021}{21}} of file \mbox{\hyperlink{base__lib_8h_source}{base\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{base__lib_8h_a34d991252a422ef87f9cd88967579522}\label{base__lib_8h_a34d991252a422ef87f9cd88967579522}} 
+\index{base\_lib.h@{base\_lib.h}!NAME\_VAR\_TO\_STR@{NAME\_VAR\_TO\_STR}}
+\index{NAME\_VAR\_TO\_STR@{NAME\_VAR\_TO\_STR}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{NAME\_VAR\_TO\_STR}{NAME\_VAR\_TO\_STR}}
+{\footnotesize\ttfamily \#define NAME\+\_\+\+VAR\+\_\+\+TO\+\_\+\+STR(\begin{DoxyParamCaption}\item[{}]{var }\end{DoxyParamCaption})~\#var}
+
+
+
+Definition at line \mbox{\hyperlink{base__lib_8h_source_l00023}{23}} of file \mbox{\hyperlink{base__lib_8h_source}{base\+\_\+lib.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{base__lib_8h_a4b4fbcdf65d0a7acc52eadd0083fe672}\label{base__lib_8h_a4b4fbcdf65d0a7acc52eadd0083fe672}} 
+\index{base\_lib.h@{base\_lib.h}!getFileSize@{getFileSize}}
+\index{getFileSize@{getFileSize}!base\_lib.h@{base\_lib.h}}
+\doxysubsubsection{\texorpdfstring{getFileSize()}{getFileSize()}}
+{\footnotesize\ttfamily long long get\+File\+Size (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{file }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & -\/ Pointer to opened file \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{base__lib_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{base__lib_8cpp_source}{base\+\_\+lib.\+cpp}}.
+

@@ -1,0 +1,641 @@
+\hypertarget{cmd__def_8h}{}\doxysection{processor/commands/cmd\+\_\+def.h File Reference}
+\label{cmd__def_8h}\index{processor/commands/cmd\_def.h@{processor/commands/cmd\_def.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cmd__def_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\+\_\+\+PROGRAM\+\_\+\+POINTER}}~++cpu.\+ip;
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ad9df8cd4d87283c5ab7699f060ab2e11}{MOVE\+\_\+\+PROGRAM\+\_\+\+POINTER\+\_\+\+INT}}~cpu.\+ip += sizeof(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\+\_\+\+ARG\+\_\+\+INT\+\_\+T}});
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\+\_\+\+VALUE}}~\mbox{\hyperlink{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}}(\&(cpu.\+stack))
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_af1b0eb518e3a6ed970920b7949213cd6}{TOP\+\_\+\+VALUE}}~\mbox{\hyperlink{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2}{Stack\+Top}}(\&(cpu.\+stack))
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a952f95274b53140354714b17825bbb48}{STACK\+\_\+\+PUSH}}(...)~\mbox{\hyperlink{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}}(\&(cpu.\+stack)    , \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a53be867dad484541664cbb9350449235}{STACK\+\_\+\+PUSH\+\_\+\+CALL}}(...)~\mbox{\hyperlink{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}}(\&(cpu.\+stack\+\_\+call), \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}{POP\+\_\+\+VAL\+\_\+\+STACK\+\_\+\+CALL}}~\mbox{\hyperlink{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}}(\&(cpu.\+stack\+\_\+call));
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\+\_\+\+CONST\+\_\+\+ARG}}~$\ast$((\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\+\_\+\+ARG\+\_\+\+INT\+\_\+T}}$\ast$)(cpu.\+code + cpu.\+ip))
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{GET\+\_\+\+REG\+\_\+\+ARG}}~cpu.\+reg.\+registr\mbox{[}cpu.\+code\mbox{[}cpu.\+ip\mbox{]} -\/ \textquotesingle{}a\textquotesingle{}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}~(int)cpu.\+code\mbox{[}cpu.\+ip\mbox{]}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}{IS\+\_\+\+CONST\+\_\+\+BYTE\+\_\+\+FROM}}~bool is\+\_\+const = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_aa28616ca4f1da3fb124185dfc58d814a}{CONST\+\_\+\+ARG\+\_\+\+CMD}};
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a8c79c4467165c01176d22c46096c4ed2}{IS\+\_\+\+REG\+\_\+\+BYTE\+\_\+\+FROM}}~bool is\+\_\+reg   = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_a93af39b11a8f267fc9cb0886d32a61b5}{REG\+\_\+\+ARG\+\_\+\+CMD}};
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a1ef5b787c7ae432d85b69b8dd229da94}{IS\+\_\+\+RAM\+\_\+\+BYTE\+\_\+\+FROM}}~bool is\+\_\+mem   = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_a3f54e9863c6eba0d30b6219747359986}{RAM\+\_\+\+ARG\+\_\+\+CMD}};
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}{GET\+\_\+\+RAM\+\_\+\+CPU}}~cpu.\+ram\+\_\+memory
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a71f3261b5dd6e03a06a2efdea2e0e342}{CPU\+\_\+\+HLT}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_afd81e7d2da9f82039de8e72f3c7361a5}{CPU\+\_\+\+PUSH}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_adec529fa2a18e6c12e9d21e520da3f2e}{CPU\+\_\+\+POP}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a42238e8a54b19ff3510abbddd865093d}{CPU\+\_\+\+IN}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aa66bd4c378a0ea89f3a5dd95d9c1d519}{CPU\+\_\+\+OUT}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aea53db9c7b9bef3efab2ee8319675edf}{CPU\+\_\+\+ADD}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aa61065da9d812d1b2eb6bf977cdf3b09}{CPU\+\_\+\+SUB}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aed28a23ff96d602e4565649543630af3}{CPU\+\_\+\+MUL}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ab0a671573bf4e2967630577fcc4aa515}{CPU\+\_\+\+DIV}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aa5de7c3ef00fec9a3702e29c8c1c39ec}{CPU\+\_\+\+SQRT}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_aa6285e7b96f6c6c2390b13fd98ac32c6}{JUMP\+\_\+\+IP}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\+\_\+\+JUMP\+\_\+\+WITH\+\_\+\+CONDITION}}(symbol)
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_abb9f964ad50916895a15239d83e7c93b}{SPECIAL\+\_\+\+AHATINA}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ae60b0c6aaef61c9962e379d2de42d5ac}{CPU\+\_\+\+CALL}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a64b55499cb0b49c03e02cca0fe7fd15a}{CPU\+\_\+\+RET}}~cpu.\+ip = \mbox{\hyperlink{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}{POP\+\_\+\+VAL\+\_\+\+STACK\+\_\+\+CALL}};
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a54880f5fd2b4101cbdd51d156dee924e}{CPU\+\_\+\+GRAPH}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_ae2d485ee57f568f65d23bf6c26608066}{CPU\+\_\+\+STROUT}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a413e3af897ce5e5b81dd0a35210759f1}{CPU\+\_\+\+DB}}
+\item 
+\#define \mbox{\hyperlink{cmd__def_8h_a000ce987887c4772b5e5fe1c0dddc3e8}{CPU\+\_\+\+MYAW}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}\label{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}} 
+\index{cmd\_def.h@{cmd\_def.h}!ADRESS@{ADRESS}}
+\index{ADRESS@{ADRESS}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{ADRESS}{ADRESS}}
+{\footnotesize\ttfamily \#define ADRESS~(int)cpu.\+code\mbox{[}cpu.\+ip\mbox{]}}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00014}{14}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aea53db9c7b9bef3efab2ee8319675edf}\label{cmd__def_8h_aea53db9c7b9bef3efab2ee8319675edf}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_ADD@{CPU\_ADD}}
+\index{CPU\_ADD@{CPU\_ADD}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_ADD}{CPU\_ADD}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+ADD}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T first\_val  = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T second\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH(first\_val + second\_val);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00127}{127}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ae60b0c6aaef61c9962e379d2de42d5ac}\label{cmd__def_8h_ae60b0c6aaef61c9962e379d2de42d5ac}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_CALL@{CPU\_CALL}}
+\index{CPU\_CALL@{CPU\_CALL}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_CALL}{CPU\_CALL}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+CALL}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                      \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH\_CALL(cpu.ip + \textcolor{keyword}{sizeof}(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}}));           \(\backslash\)}
+\DoxyCodeLine{    cpu.ip = \mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}};}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00194}{194}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a413e3af897ce5e5b81dd0a35210759f1}\label{cmd__def_8h_a413e3af897ce5e5b81dd0a35210759f1}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_DB@{CPU\_DB}}
+\index{CPU\_DB@{CPU\_DB}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_DB}{CPU\_DB}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+DB}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                           \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER;                           \(\backslash\)}
+\DoxyCodeLine{    for (; cpu.code[cpu.ip] != \textcolor{charliteral}{'\$'};) \{              \(\backslash\)}
+\DoxyCodeLine{        MOVE\_PROGRAM\_POINTER;                       \(\backslash\)}
+\DoxyCodeLine{    \}                                               \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00214}{214}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ab0a671573bf4e2967630577fcc4aa515}\label{cmd__def_8h_ab0a671573bf4e2967630577fcc4aa515}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_DIV@{CPU\_DIV}}
+\index{CPU\_DIV@{CPU\_DIV}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_DIV}{CPU\_DIV}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+DIV}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T first\_val  = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T second\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH((\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})((\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})second\_val / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})first\_val) * \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}});}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00145}{145}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a54880f5fd2b4101cbdd51d156dee924e}\label{cmd__def_8h_a54880f5fd2b4101cbdd51d156dee924e}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_GRAPH@{CPU\_GRAPH}}
+\index{CPU\_GRAPH@{CPU\_GRAPH}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_GRAPH}{CPU\_GRAPH}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+GRAPH}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                               \(\backslash\)}
+\DoxyCodeLine{    DrawInTerminal(\mbox{\hyperlink{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}{GET\_RAM\_CPU}}.ram, \mbox{\hyperlink{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}{GET\_RAM\_CPU}}.size\_ram);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00201}{201}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a71f3261b5dd6e03a06a2efdea2e0e342}\label{cmd__def_8h_a71f3261b5dd6e03a06a2efdea2e0e342}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_HLT@{CPU\_HLT}}
+\index{CPU\_HLT@{CPU\_HLT}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_HLT}{CPU\_HLT}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+HLT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    free(cpu.code);                      \(\backslash\)}
+\DoxyCodeLine{    StackDestructor(\&(cpu.stack));       \(\backslash\)}
+\DoxyCodeLine{    StackDestructor(\&(cpu.stack\_call));  \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)nCPU end successful\(\backslash\)n"{}});    \(\backslash\)}
+\DoxyCodeLine{    exit(0);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00032}{32}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a42238e8a54b19ff3510abbddd865093d}\label{cmd__def_8h_a42238e8a54b19ff3510abbddd865093d}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_IN@{CPU\_IN}}
+\index{CPU\_IN@{CPU\_IN}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_IN}{CPU\_IN}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+IN}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}{IS\_CONST\_BYTE\_FROM}};                   \(\backslash\)}
+\DoxyCodeLine{    IS\_REG\_BYTE\_FROM;                     \(\backslash\)}
+\DoxyCodeLine{    IS\_RAM\_BYTE\_FROM;                     \(\backslash\)}
+\DoxyCodeLine{                                          \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER                  \(\backslash\)}
+\DoxyCodeLine{                                          \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_REAL\_T in\_val = 0;            \(\backslash\)}
+\DoxyCodeLine{    scanf(\textcolor{stringliteral}{"{}\%lf"{}}, \&in\_val);                \(\backslash\)}
+\DoxyCodeLine{    in\_val *= \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}};                  \(\backslash\)}
+\DoxyCodeLine{                                          \(\backslash\)}
+\DoxyCodeLine{    if (is\_mem) \{                         \(\backslash\)}
+\DoxyCodeLine{        if (is\_reg \&\& is\_const) \{         \(\backslash\)}
+\DoxyCodeLine{            GET\_RAM\_CPU.ram[(\mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{GET\_REG\_ARG}}] / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}) + (\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}})] = (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})in\_val;        \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER\_INT;                                                                  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{        else \textcolor{keywordflow}{if} (is\_reg) \{                                                                             \(\backslash\)}
+\DoxyCodeLine{                GET\_RAM\_CPU.ram[\mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{GET\_REG\_ARG}}] / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}] = (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})in\_val;                                    \(\backslash\)}
+\DoxyCodeLine{                MOVE\_PROGRAM\_POINTER;                                                                  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{        else \textcolor{keywordflow}{if} (is\_const) \{                                                                           \(\backslash\)}
+\DoxyCodeLine{                GET\_RAM\_CPU.ram[(\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}})] = (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})in\_val;                                 \(\backslash\)}
+\DoxyCodeLine{                MOVE\_PROGRAM\_POINTER\_INT;                                                              \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                                  \(\backslash\)}
+\DoxyCodeLine{    else \textcolor{keywordflow}{if} (is\_reg) \{                                                                                 \(\backslash\)}
+\DoxyCodeLine{            GET\_REG\_ARG] = (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})in\_val;                                                                     \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00091}{91}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aed28a23ff96d602e4565649543630af3}\label{cmd__def_8h_aed28a23ff96d602e4565649543630af3}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_MUL@{CPU\_MUL}}
+\index{CPU\_MUL@{CPU\_MUL}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_MUL}{CPU\_MUL}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+MUL}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T first\_val  = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T second\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH((second\_val * first\_val) / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}});}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00139}{139}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a000ce987887c4772b5e5fe1c0dddc3e8}\label{cmd__def_8h_a000ce987887c4772b5e5fe1c0dddc3e8}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_MYAW@{CPU\_MYAW}}
+\index{CPU\_MYAW@{CPU\_MYAW}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_MYAW}{CPU\_MYAW}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+MYAW}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};\(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});   \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s\(\backslash\)n\%s\(\backslash\)n\%s\(\backslash\)n\%s\(\backslash\)n\%s"{}}, \textcolor{stringliteral}{"{}     .-\/-\/-\/-\/.   @   @  "{}}, \textcolor{stringliteral}{"{}    / .-\/ -\/.`.  \(\backslash\)v/   "{}}, \textcolor{stringliteral}{"{}   | | '\(\backslash\) \(\backslash\) \(\backslash\)\_/ )    "{}},  \textcolor{stringliteral}{"{}  ,-\/\(\backslash\) `-\/.' /.'  /    "{}}, \textcolor{stringliteral}{"{} '-\/-\/-\/`-\/-\/-\/-\/'-\/-\/-\/-\/'     "{}});  \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00223}{223}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aa66bd4c378a0ea89f3a5dd95d9c1d519}\label{cmd__def_8h_aa66bd4c378a0ea89f3a5dd95d9c1d519}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_OUT@{CPU\_OUT}}
+\index{CPU\_OUT@{CPU\_OUT}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_OUT}{CPU\_OUT}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+OUT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                              \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T top\_val = \mbox{\hyperlink{cmd__def_8h_af1b0eb518e3a6ed970920b7949213cd6}{TOP\_VALUE}};                                 \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n\%0.3lf\(\backslash\)n"{}}, (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})top\_val / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}});}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00122}{122}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_adec529fa2a18e6c12e9d21e520da3f2e}\label{cmd__def_8h_adec529fa2a18e6c12e9d21e520da3f2e}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_POP@{CPU\_POP}}
+\index{CPU\_POP@{CPU\_POP}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_POP}{CPU\_POP}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+POP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}} pop\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};    \(\backslash\)}
+\DoxyCodeLine{                                          \(\backslash\)}
+\DoxyCodeLine{    IS\_CONST\_BYTE\_FROM;                   \(\backslash\)}
+\DoxyCodeLine{    IS\_REG\_BYTE\_FROM;                     \(\backslash\)}
+\DoxyCodeLine{    IS\_RAM\_BYTE\_FROM;                     \(\backslash\)}
+\DoxyCodeLine{                                          \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER                  \(\backslash\)}
+\DoxyCodeLine{    if (is\_mem) \{                         \(\backslash\)}
+\DoxyCodeLine{        if (is\_reg \&\& is\_const) \{         \(\backslash\)}
+\DoxyCodeLine{            GET\_RAM\_CPU.ram[(\mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{GET\_REG\_ARG}}] / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}) + (\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}})] = pop\_val;       \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER\_INT;                                                                  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{        else \textcolor{keywordflow}{if} (is\_reg) \{                                                                             \(\backslash\)}
+\DoxyCodeLine{                GET\_RAM\_CPU.ram[\mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{GET\_REG\_ARG}}] / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}] = pop\_val;                                   \(\backslash\)}
+\DoxyCodeLine{                MOVE\_PROGRAM\_POINTER;                                                                  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{        else \textcolor{keywordflow}{if} (is\_const) \{                                                                           \(\backslash\)}
+\DoxyCodeLine{                GET\_RAM\_CPU.ram[(\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} / \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}})] = pop\_val;                                \(\backslash\)}
+\DoxyCodeLine{                MOVE\_PROGRAM\_POINTER\_INT;                                                              \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                                  \(\backslash\)}
+\DoxyCodeLine{    else \textcolor{keywordflow}{if} (is\_reg) \{                                                                                 \(\backslash\)}
+\DoxyCodeLine{            GET\_REG\_ARG] = pop\_val;                                                                    \(\backslash\)}
+\DoxyCodeLine{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00063}{63}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_afd81e7d2da9f82039de8e72f3c7361a5}\label{cmd__def_8h_afd81e7d2da9f82039de8e72f3c7361a5}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_PUSH@{CPU\_PUSH}}
+\index{CPU\_PUSH@{CPU\_PUSH}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_PUSH}{CPU\_PUSH}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+PUSH}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}{IS\_CONST\_BYTE\_FROM}};                 \(\backslash\)}
+\DoxyCodeLine{    IS\_REG\_BYTE\_FROM;                   \(\backslash\)}
+\DoxyCodeLine{    IS\_RAM\_BYTE\_FROM;                   \(\backslash\)}
+\DoxyCodeLine{                                        \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER;               \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_REAL\_T reg\_val   = 0;       \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_REAL\_T arg\_const = 0;       \(\backslash\)}
+\DoxyCodeLine{                                        \(\backslash\)}
+\DoxyCodeLine{    if (is\_reg) \{                       \(\backslash\)}
+\DoxyCodeLine{        reg\_val = (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})cpu.reg.registr[cpu.code[cpu.ip] -\/ \textcolor{charliteral}{'a'}] / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}};       \(\backslash\)}
+\DoxyCodeLine{        MOVE\_PROGRAM\_POINTER;                                                                \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                        \(\backslash\)}
+\DoxyCodeLine{    if (is\_const) \{                                                                          \(\backslash\)}
+\DoxyCodeLine{        arg\_const = (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}};                               \(\backslash\)}
+\DoxyCodeLine{        MOVE\_PROGRAM\_POINTER\_INT;                                                            \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                        \(\backslash\)}
+\DoxyCodeLine{    if (is\_mem) \{                                                                            \(\backslash\)}
+\DoxyCodeLine{        STACK\_PUSH(\mbox{\hyperlink{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}{GET\_RAM\_CPU}}.ram[(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})(is\_reg ? (is\_const ? (reg\_val + arg\_const) : reg\_val) : arg\_const)]);   \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                                                      \(\backslash\)}
+\DoxyCodeLine{    else \{                                                                                                                 \(\backslash\)}
+\DoxyCodeLine{        STACK\_PUSH((\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})((is\_reg ? (is\_const ? (reg\_val + arg\_const) : reg\_val) : arg\_const) * \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}));      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00039}{39}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a64b55499cb0b49c03e02cca0fe7fd15a}\label{cmd__def_8h_a64b55499cb0b49c03e02cca0fe7fd15a}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_RET@{CPU\_RET}}
+\index{CPU\_RET@{CPU\_RET}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_RET}{CPU\_RET}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+RET~cpu.\+ip = \mbox{\hyperlink{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}{POP\+\_\+\+VAL\+\_\+\+STACK\+\_\+\+CALL}};}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00199}{199}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aa5de7c3ef00fec9a3702e29c8c1c39ec}\label{cmd__def_8h_aa5de7c3ef00fec9a3702e29c8c1c39ec}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_SQRT@{CPU\_SQRT}}
+\index{CPU\_SQRT@{CPU\_SQRT}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_SQRT}{CPU\_SQRT}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+SQRT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                                         \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T val = (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})sqrt((\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}} / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}}) * \mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}};  \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH(val);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00151}{151}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ae2d485ee57f568f65d23bf6c26608066}\label{cmd__def_8h_ae2d485ee57f568f65d23bf6c26608066}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_STROUT@{CPU\_STROUT}}
+\index{CPU\_STROUT@{CPU\_STROUT}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_STROUT}{CPU\_STROUT}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+STROUT}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                                                          \(\backslash\)}
+\DoxyCodeLine{    for (\textcolor{keywordtype}{size\_t} cur\_symb = \mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}} + 2; cpu.code[cur\_symb] != \textcolor{charliteral}{'\$'}; ++cur\_symb) \{             \(\backslash\)}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}\%c"{}}, cpu.code[cur\_symb]);                                                          \(\backslash\)}
+\DoxyCodeLine{    \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\(\backslash\)n"{}});                                                                                  \(\backslash\)}
+\DoxyCodeLine{    MOVE\_PROGRAM\_POINTER\_INT;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00205}{205}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aa61065da9d812d1b2eb6bf977cdf3b09}\label{cmd__def_8h_aa61065da9d812d1b2eb6bf977cdf3b09}} 
+\index{cmd\_def.h@{cmd\_def.h}!CPU\_SUB@{CPU\_SUB}}
+\index{CPU\_SUB@{CPU\_SUB}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{CPU\_SUB}{CPU\_SUB}}
+{\footnotesize\ttfamily \#define CPU\+\_\+\+SUB}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T first\_val  = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T second\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};                      \(\backslash\)}
+\DoxyCodeLine{    STACK\_PUSH(second\_val -\/ first\_val);}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00133}{133}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}\label{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}} 
+\index{cmd\_def.h@{cmd\_def.h}!GET\_CONST\_ARG@{GET\_CONST\_ARG}}
+\index{GET\_CONST\_ARG@{GET\_CONST\_ARG}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{GET\_CONST\_ARG}{GET\_CONST\_ARG}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+CONST\+\_\+\+ARG~$\ast$((\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\+\_\+\+ARG\+\_\+\+INT\+\_\+T}}$\ast$)(cpu.\+code + cpu.\+ip))}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00011}{11}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}\label{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}} 
+\index{cmd\_def.h@{cmd\_def.h}!GET\_RAM\_CPU@{GET\_RAM\_CPU}}
+\index{GET\_RAM\_CPU@{GET\_RAM\_CPU}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{GET\_RAM\_CPU}{GET\_RAM\_CPU}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+RAM\+\_\+\+CPU~cpu.\+ram\+\_\+memory}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00020}{20}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}\label{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}} 
+\index{cmd\_def.h@{cmd\_def.h}!GET\_REG\_ARG@{GET\_REG\_ARG}}
+\index{GET\_REG\_ARG@{GET\_REG\_ARG}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{GET\_REG\_ARG}{GET\_REG\_ARG}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+REG\+\_\+\+ARG~cpu.\+reg.\+registr\mbox{[}cpu.\+code\mbox{[}cpu.\+ip\mbox{]} -\/ \textquotesingle{}a\textquotesingle{}}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00012}{12}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}\label{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}} 
+\index{cmd\_def.h@{cmd\_def.h}!IF\_JUMP\_WITH\_CONDITION@{IF\_JUMP\_WITH\_CONDITION}}
+\index{IF\_JUMP\_WITH\_CONDITION@{IF\_JUMP\_WITH\_CONDITION}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{IF\_JUMP\_WITH\_CONDITION}{IF\_JUMP\_WITH\_CONDITION}}
+{\footnotesize\ttfamily \#define IF\+\_\+\+JUMP\+\_\+\+WITH\+\_\+\+CONDITION(\begin{DoxyParamCaption}\item[{}]{symbol }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};                       \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T first\_val  = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};       \(\backslash\)}
+\DoxyCodeLine{    CPU\_ARG\_INT\_T second\_val = \mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{POP\_VALUE}};       \(\backslash\)}
+\DoxyCodeLine{                                                \(\backslash\)}
+\DoxyCodeLine{    if (second\_val symbol first\_val) \{          \(\backslash\)}
+\DoxyCodeLine{        cpu.ip = \mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}};                 \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{else} \{                                    \(\backslash\)}
+\DoxyCodeLine{        MOVE\_PROGRAM\_POINTER\_INT;               \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00160}{160}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}\label{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}} 
+\index{cmd\_def.h@{cmd\_def.h}!IS\_CONST\_BYTE\_FROM@{IS\_CONST\_BYTE\_FROM}}
+\index{IS\_CONST\_BYTE\_FROM@{IS\_CONST\_BYTE\_FROM}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{IS\_CONST\_BYTE\_FROM}{IS\_CONST\_BYTE\_FROM}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+CONST\+\_\+\+BYTE\+\_\+\+FROM~bool is\+\_\+const = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_aa28616ca4f1da3fb124185dfc58d814a}{CONST\+\_\+\+ARG\+\_\+\+CMD}};}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00016}{16}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a1ef5b787c7ae432d85b69b8dd229da94}\label{cmd__def_8h_a1ef5b787c7ae432d85b69b8dd229da94}} 
+\index{cmd\_def.h@{cmd\_def.h}!IS\_RAM\_BYTE\_FROM@{IS\_RAM\_BYTE\_FROM}}
+\index{IS\_RAM\_BYTE\_FROM@{IS\_RAM\_BYTE\_FROM}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{IS\_RAM\_BYTE\_FROM}{IS\_RAM\_BYTE\_FROM}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+RAM\+\_\+\+BYTE\+\_\+\+FROM~bool is\+\_\+mem   = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_a3f54e9863c6eba0d30b6219747359986}{RAM\+\_\+\+ARG\+\_\+\+CMD}};}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00018}{18}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a8c79c4467165c01176d22c46096c4ed2}\label{cmd__def_8h_a8c79c4467165c01176d22c46096c4ed2}} 
+\index{cmd\_def.h@{cmd\_def.h}!IS\_REG\_BYTE\_FROM@{IS\_REG\_BYTE\_FROM}}
+\index{IS\_REG\_BYTE\_FROM@{IS\_REG\_BYTE\_FROM}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{IS\_REG\_BYTE\_FROM}{IS\_REG\_BYTE\_FROM}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+REG\+\_\+\+BYTE\+\_\+\+FROM~bool is\+\_\+reg   = (\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{ADRESS}}) \& \mbox{\hyperlink{constants_8h_a93af39b11a8f267fc9cb0886d32a61b5}{REG\+\_\+\+ARG\+\_\+\+CMD}};}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00017}{17}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_aa6285e7b96f6c6c2390b13fd98ac32c6}\label{cmd__def_8h_aa6285e7b96f6c6c2390b13fd98ac32c6}} 
+\index{cmd\_def.h@{cmd\_def.h}!JUMP\_IP@{JUMP\_IP}}
+\index{JUMP\_IP@{JUMP\_IP}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{JUMP\_IP}{JUMP\_IP}}
+{\footnotesize\ttfamily \#define JUMP\+\_\+\+IP}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{MOVE\_PROGRAM\_POINTER}};    \(\backslash\)}
+\DoxyCodeLine{    cpu.ip = \mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{GET\_CONST\_ARG}};}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00156}{156}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}\label{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}} 
+\index{cmd\_def.h@{cmd\_def.h}!MOVE\_PROGRAM\_POINTER@{MOVE\_PROGRAM\_POINTER}}
+\index{MOVE\_PROGRAM\_POINTER@{MOVE\_PROGRAM\_POINTER}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{MOVE\_PROGRAM\_POINTER}{MOVE\_PROGRAM\_POINTER}}
+{\footnotesize\ttfamily \#define MOVE\+\_\+\+PROGRAM\+\_\+\+POINTER~++cpu.\+ip;}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00001}{1}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_ad9df8cd4d87283c5ab7699f060ab2e11}\label{cmd__def_8h_ad9df8cd4d87283c5ab7699f060ab2e11}} 
+\index{cmd\_def.h@{cmd\_def.h}!MOVE\_PROGRAM\_POINTER\_INT@{MOVE\_PROGRAM\_POINTER\_INT}}
+\index{MOVE\_PROGRAM\_POINTER\_INT@{MOVE\_PROGRAM\_POINTER\_INT}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{MOVE\_PROGRAM\_POINTER\_INT}{MOVE\_PROGRAM\_POINTER\_INT}}
+{\footnotesize\ttfamily \#define MOVE\+\_\+\+PROGRAM\+\_\+\+POINTER\+\_\+\+INT~cpu.\+ip += sizeof(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\+\_\+\+ARG\+\_\+\+INT\+\_\+T}});}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00002}{2}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}\label{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}} 
+\index{cmd\_def.h@{cmd\_def.h}!POP\_VAL\_STACK\_CALL@{POP\_VAL\_STACK\_CALL}}
+\index{POP\_VAL\_STACK\_CALL@{POP\_VAL\_STACK\_CALL}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{POP\_VAL\_STACK\_CALL}{POP\_VAL\_STACK\_CALL}}
+{\footnotesize\ttfamily \#define POP\+\_\+\+VAL\+\_\+\+STACK\+\_\+\+CALL~\mbox{\hyperlink{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}}(\&(cpu.\+stack\+\_\+call));}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00009}{9}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}\label{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}} 
+\index{cmd\_def.h@{cmd\_def.h}!POP\_VALUE@{POP\_VALUE}}
+\index{POP\_VALUE@{POP\_VALUE}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{POP\_VALUE}{POP\_VALUE}}
+{\footnotesize\ttfamily \#define POP\+\_\+\+VALUE~\mbox{\hyperlink{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}}(\&(cpu.\+stack))}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00004}{4}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_abb9f964ad50916895a15239d83e7c93b}\label{cmd__def_8h_abb9f964ad50916895a15239d83e7c93b}} 
+\index{cmd\_def.h@{cmd\_def.h}!SPECIAL\_AHATINA@{SPECIAL\_AHATINA}}
+\index{SPECIAL\_AHATINA@{SPECIAL\_AHATINA}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{SPECIAL\_AHATINA}{SPECIAL\_AHATINA}}
+{\footnotesize\ttfamily \#define SPECIAL\+\_\+\+AHATINA}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \mbox{\hyperlink{cmd__def_8h_ad9df8cd4d87283c5ab7699f060ab2e11}{MOVE\_PROGRAM\_POINTER\_INT}};   \(\backslash\)}
+\DoxyCodeLine{    int count = 0;              \(\backslash\)}
+\DoxyCodeLine{                                \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}} ,\textcolor{stringliteral}{"{}Akhatina got tired and went to bed. Wake me up in 12 hours.\(\backslash\)n"{}});   \(\backslash\)}
+\DoxyCodeLine{    getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}} ,\textcolor{stringliteral}{"{}I told you in 12 hours!!!\(\backslash\)n"{}});                                     \(\backslash\)}
+\DoxyCodeLine{    getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}} ,\textcolor{stringliteral}{"{}If you try to wake me up again, I'll burn out every transistor"{}}    \(\backslash\)}
+\DoxyCodeLine{           \textcolor{stringliteral}{"{}of your real processor and start full formatting of all disks."{}}          \(\backslash\)}
+\DoxyCodeLine{           \textcolor{stringliteral}{"{}EVEN CLOUD ONES!!!\(\backslash\)nThis is the latest Chinese warning."{}});               \(\backslash\)}
+\DoxyCodeLine{    getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}} ,\textcolor{stringliteral}{"{}How are you ******.\(\backslash\)n"{}});                                           \(\backslash\)}
+\DoxyCodeLine{    printf(\textcolor{stringliteral}{"{}\%s"{}} ,\textcolor{stringliteral}{"{}Start formatting disk C: 0\%\(\backslash\)n"{}});                                   \(\backslash\)}
+\DoxyCodeLine{                                                                               \(\backslash\)}
+\DoxyCodeLine{    while (count < 100) \{                                                      \(\backslash\)}
+\DoxyCodeLine{        ++count;                                                               \(\backslash\)}
+\DoxyCodeLine{        printf(\textcolor{stringliteral}{"{}                         \%d\%\% \(\backslash\)n"{}}, count);                     \(\backslash\)}
+\DoxyCodeLine{        SLEEP\_COMMAND;                                                         \(\backslash\)}
+\DoxyCodeLine{    \}                                                                          \(\backslash\)}
+\DoxyCodeLine{                                                                               \(\backslash\)}
+\DoxyCodeLine{    SYSTEM\_TASK;}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00171}{171}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a952f95274b53140354714b17825bbb48}\label{cmd__def_8h_a952f95274b53140354714b17825bbb48}} 
+\index{cmd\_def.h@{cmd\_def.h}!STACK\_PUSH@{STACK\_PUSH}}
+\index{STACK\_PUSH@{STACK\_PUSH}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_PUSH}{STACK\_PUSH}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+PUSH(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}}(\&(cpu.\+stack)    , \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+)}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00006}{6}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_a53be867dad484541664cbb9350449235}\label{cmd__def_8h_a53be867dad484541664cbb9350449235}} 
+\index{cmd\_def.h@{cmd\_def.h}!STACK\_PUSH\_CALL@{STACK\_PUSH\_CALL}}
+\index{STACK\_PUSH\_CALL@{STACK\_PUSH\_CALL}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_PUSH\_CALL}{STACK\_PUSH\_CALL}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+PUSH\+\_\+\+CALL(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})~\mbox{\hyperlink{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}}(\&(cpu.\+stack\+\_\+call), \+\_\+\+\_\+\+VA\+\_\+\+ARGS\+\_\+\+\_\+);}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00008}{8}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+
+\mbox{\Hypertarget{cmd__def_8h_af1b0eb518e3a6ed970920b7949213cd6}\label{cmd__def_8h_af1b0eb518e3a6ed970920b7949213cd6}} 
+\index{cmd\_def.h@{cmd\_def.h}!TOP\_VALUE@{TOP\_VALUE}}
+\index{TOP\_VALUE@{TOP\_VALUE}!cmd\_def.h@{cmd\_def.h}}
+\doxysubsubsection{\texorpdfstring{TOP\_VALUE}{TOP\_VALUE}}
+{\footnotesize\ttfamily \#define TOP\+\_\+\+VALUE~\mbox{\hyperlink{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2}{Stack\+Top}}(\&(cpu.\+stack))}
+
+
+
+Definition at line \mbox{\hyperlink{cmd__def_8h_source_l00005}{5}} of file \mbox{\hyperlink{cmd__def_8h_source}{cmd\+\_\+def.\+h}}.
+

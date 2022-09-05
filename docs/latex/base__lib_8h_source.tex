@@ -1,0 +1,66 @@
+\hypertarget{base__lib_8h_source}{}\doxysection{base\+\_\+lib.\+h}
+\label{base__lib_8h_source}\index{processor/base\_lib/base\_lib.h@{processor/base\_lib/base\_lib.h}}
+\mbox{\hyperlink{base__lib_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00001}00001 \textcolor{preprocessor}{\#ifndef BASE\_LIB\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00002}00002 \textcolor{preprocessor}{\#define BASE\_LIB\_H\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00004}00004 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <assert.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00009}00009 \textcolor{preprocessor}{\#ifdef \_\_linux\_\_ }}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00011}00011 \textcolor{preprocessor}{\#include <fcntl.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00012}00012 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00013}00013 \textcolor{preprocessor}{\#elif \_WIN32}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00014}00014 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <sys\(\backslash\)stat.h>}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00016}00016 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00018}00018 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00020}\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{00020}} \textcolor{preprocessor}{\#define LOCATION\_\_ \_\_FILE\_\_, \_\_func\_\_, \_\_LINE\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00021}\mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{00021}} \textcolor{preprocessor}{\#define LOCATION\_VAR\_\_(var) \#var, \_\_FILE\_\_, \_\_func\_\_, \_\_LINE\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00022}\mbox{\hyperlink{base__lib_8h_a21cda9b3355dbdf7f65652c8ed7a3035}{00022}} \textcolor{preprocessor}{\#define COMPLETE\_STR\_\_(...) \_\_VA\_ARGS\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00023}\mbox{\hyperlink{base__lib_8h_a34d991252a422ef87f9cd88967579522}{00023}} \textcolor{preprocessor}{\#define NAME\_VAR\_TO\_STR(var) \#var}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00024}\mbox{\hyperlink{base__lib_8h_ad2a439fd13847834320d78480aa13458}{00024}} \textcolor{preprocessor}{\#define COMPLETE\_STR\_VAR\_\_(str, var) str \#var}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00026}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{00026}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00027}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aad373a9f0ab4767f888d47fd510df034}{00027}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aad373a9f0ab4767f888d47fd510df034}{filename\_\_}}  = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00028}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____af8ccdd2e2835ba63c14832615677b14c}{00028}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____af8ccdd2e2835ba63c14832615677b14c}{func\_name\_\_}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00029}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aaf0631980f73479abfad32a92bb2e9dc}{00029}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aaf0631980f73479abfad32a92bb2e9dc}{line\_\_}} = -\/1;}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00030}00030 \};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00032}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t____}{00032}} \textcolor{keyword}{struct }\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t____}{LOCATION\_VAR\_STRUCT\_\_}} \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00033}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____a8589a05fe083efa67d30055ac25dbfe3}{00033}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____a8589a05fe083efa67d30055ac25dbfe3}{var\_name\_\_}}  = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00034}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____acbe975e36b9354e678d28ea02cf1b8ac}{00034}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____acbe975e36b9354e678d28ea02cf1b8ac}{filename\_\_}}  = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00035}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____afdc35f070829c3b852d49c8c03dec1e4}{00035}}     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____afdc35f070829c3b852d49c8c03dec1e4}{func\_name\_\_}} = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00036}\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____acdbb614b5a7dc63dc5b28b4744412ea4}{00036}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___v_a_r___s_t_r_u_c_t_____acdbb614b5a7dc63dc5b28b4744412ea4}{line\_\_}}              = -\/1;}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00037}00037 \};}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00039}00039 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00041}00041 \textcolor{preprocessor}{\#ifdef \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00042}00042 \textcolor{preprocessor}{    \#define \_IsBadReadPtr(pointer) \_IsBadReadPtr\_\_(pointer, sizeof(pointer))    }}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00043}00043     \textcolor{keywordtype}{bool} \_IsBadReadPtr\_\_(\textcolor{keywordtype}{void}* pointer, \textcolor{keywordtype}{size\_t} size);}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00044}00044 \textcolor{preprocessor}{\#elif \_WIN32}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00045}00045 \textcolor{preprocessor}{    \#define \_IsBadReadPtr(pointer) \_IsBadReadPtr\_\_(pointer)}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00046}00046     \textcolor{keywordtype}{bool} \_IsBadReadPtr\_\_(\textcolor{keywordtype}{void}* pointer);}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00047}00047 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00049}00049 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00052}00052 \textcolor{preprocessor}{\#ifdef \_WIN32}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00053}00053     \textcolor{keywordtype}{int} file\_cmp(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* file1, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* file2);}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00054}00054 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00055}00055 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00056}00056 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00057}00057 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00058}00058 \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \mbox{\hyperlink{base__lib_8h_a4b4fbcdf65d0a7acc52eadd0083fe672}{getFileSize}}(FILE* file);}
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{base__lib_8h_source_l00060}00060 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

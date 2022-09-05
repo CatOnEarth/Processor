@@ -1,0 +1,26 @@
+STROUT 0.109
+IN ax
+PUSH ax+1.000
+POP ax
+PUSH 1.000
+PUSH 1.000
+POP bx
+POP cx
+CALL 0.067
+PUSH bx
+STROUT 0.126
+OUT
+HLT
+PUSH bx
+PUSH cx
+MUL
+POP bx
+PUSH cx+1.000
+POP cx
+PUSH ax
+PUSH cx
+JBE 0.108
+CALL 0.067
+RET
+DB $Input number: $
+DB $Factorial is: $

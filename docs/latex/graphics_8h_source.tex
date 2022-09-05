@@ -1,0 +1,32 @@
+\hypertarget{graphics_8h_source}{}\doxysection{graphics.\+h}
+\label{graphics_8h_source}\index{processor/cpu/graphics/graphics.h@{processor/cpu/graphics/graphics.h}}
+\mbox{\hyperlink{graphics_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00003}00003 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <cstdio>}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00007}00007 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}../../types/types.h"{}}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00010}00010 \textcolor{preprocessor}{\#ifdef \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00011}00011 \textcolor{preprocessor}{    \#include <SFML/Graphics.hpp>}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00012}00012 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00014}00014 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00016}\mbox{\hyperlink{graphics_8h_a137e2b35e08d7213f4fdb9092857ea3a}{00016}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{graphics_8h_a137e2b35e08d7213f4fdb9092857ea3a}{HEIGHT\_WINDOW}} = 300;}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00017}\mbox{\hyperlink{graphics_8h_aa9f393fc916f1f8d92cd82ca0a5a0f4c}{00017}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{graphics_8h_aa9f393fc916f1f8d92cd82ca0a5a0f4c}{WIDTH\_WINDOW}}  = 300;}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00019}00019 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00021}00021 \textcolor{preprocessor}{\#ifdef \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00022}00022     \textcolor{keywordtype}{void} DrawInTerminal(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}}* memory, \textcolor{keywordtype}{size\_t} start\_ind\_video\_mem);}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00023}00023 \textcolor{preprocessor}{\#elif \_WIN32}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00024}00024     \textcolor{keywordtype}{void} DrawInTerminal(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}}* memory, \textcolor{keywordtype}{size\_t} start\_ind\_video\_mem);}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00025}00025 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{graphics_8h_source_l00026}00026 }
+
+\end{DoxyCode}

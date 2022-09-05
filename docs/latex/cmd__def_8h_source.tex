@@ -1,0 +1,262 @@
+\hypertarget{cmd__def_8h_source}{}\doxysection{cmd\+\_\+def.\+h}
+\label{cmd__def_8h_source}\index{processor/commands/cmd\_def.h@{processor/commands/cmd\_def.h}}
+\mbox{\hyperlink{cmd__def_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00001}\mbox{\hyperlink{cmd__def_8h_a769ae63b22102766c5b765b9e8732b69}{00001}} \textcolor{preprocessor}{\#define MOVE\_PROGRAM\_POINTER     ++cpu.ip;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00002}\mbox{\hyperlink{cmd__def_8h_ad9df8cd4d87283c5ab7699f060ab2e11}{00002}} \textcolor{preprocessor}{\#define MOVE\_PROGRAM\_POINTER\_INT cpu.ip += sizeof(CPU\_ARG\_INT\_T);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00004}\mbox{\hyperlink{cmd__def_8h_a363d032da689d5d1449b44dabc2dd55e}{00004}} \textcolor{preprocessor}{\#define POP\_VALUE            StackPop(\&(cpu.stack))}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00005}\mbox{\hyperlink{cmd__def_8h_af1b0eb518e3a6ed970920b7949213cd6}{00005}} \textcolor{preprocessor}{\#define TOP\_VALUE            StackTop(\&(cpu.stack))}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00006}\mbox{\hyperlink{cmd__def_8h_a952f95274b53140354714b17825bbb48}{00006}} \textcolor{preprocessor}{\#define STACK\_PUSH(...)      StackPush(\&(cpu.stack)    , \_\_VA\_ARGS\_\_)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00008}\mbox{\hyperlink{cmd__def_8h_a53be867dad484541664cbb9350449235}{00008}} \textcolor{preprocessor}{\#define STACK\_PUSH\_CALL(...) StackPush(\&(cpu.stack\_call), \_\_VA\_ARGS\_\_); }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00009}\mbox{\hyperlink{cmd__def_8h_a4444efa39940c8e3994ad49cf1a4bdeb}{00009}} \textcolor{preprocessor}{\#define POP\_VAL\_STACK\_CALL   StackPop(\&(cpu.stack\_call));}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00011}\mbox{\hyperlink{cmd__def_8h_a3ecc75633f29ead05c2076aafb0482a9}{00011}} \textcolor{preprocessor}{\#define GET\_CONST\_ARG        *((CPU\_ARG\_INT\_T*)(cpu.code + cpu.ip))}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00012}\mbox{\hyperlink{cmd__def_8h_ac7996f40262d084bf63f40442ec45aec}{00012}} \textcolor{preprocessor}{\#define GET\_REG\_ARG          cpu.reg.registr[cpu.code[cpu.ip] -\/ 'a'}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00014}\mbox{\hyperlink{cmd__def_8h_a7392918fab4ccd6d447bf2c0583f072b}{00014}} \textcolor{preprocessor}{\#define ADRESS               (int)cpu.code[cpu.ip]}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00016}\mbox{\hyperlink{cmd__def_8h_a2552c59c55edf401cbbc39cfb087b98e}{00016}} \textcolor{preprocessor}{\#define IS\_CONST\_BYTE\_FROM bool is\_const = (ADRESS) \& CONST\_ARG\_CMD;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00017}\mbox{\hyperlink{cmd__def_8h_a8c79c4467165c01176d22c46096c4ed2}{00017}} \textcolor{preprocessor}{\#define IS\_REG\_BYTE\_FROM   bool is\_reg   = (ADRESS) \& REG\_ARG\_CMD;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00018}\mbox{\hyperlink{cmd__def_8h_a1ef5b787c7ae432d85b69b8dd229da94}{00018}} \textcolor{preprocessor}{\#define IS\_RAM\_BYTE\_FROM   bool is\_mem   = (ADRESS) \& RAM\_ARG\_CMD;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00020}\mbox{\hyperlink{cmd__def_8h_a52768c36a37cef41676c92b34fb7593f}{00020}} \textcolor{preprocessor}{\#define GET\_RAM\_CPU        cpu.ram\_memory}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00022}00022 \textcolor{preprocessor}{\#ifdef  \_\_linux\_\_                                                              }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00023}00023 \textcolor{preprocessor}{    \#define SYSTEM\_TASK      system("{}init 0"{}});}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00024}00024 \textcolor{preprocessor}{    \#define SLEEP\_COMMAND    usleep(100000);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00025}00025 \textcolor{preprocessor}{\#elif \_WIN32                                                                   }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00026}00026 \textcolor{preprocessor}{    \#define SYSTEM\_TASK      system("{}shutdown -\/s"{}}); }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00027}00027 \textcolor{preprocessor}{    \#define SLEEP\_COMMAND    Sleep(200);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00028}00028 \textcolor{preprocessor}{\#endif }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00030}00030 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00032}\mbox{\hyperlink{cmd__def_8h_a71f3261b5dd6e03a06a2efdea2e0e342}{00032}} \textcolor{preprocessor}{\#define CPU\_HLT                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00033}00033 \textcolor{preprocessor}{    free(cpu.code);                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00034}00034 \textcolor{preprocessor}{    StackDestructor(\&(cpu.stack));       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00035}00035 \textcolor{preprocessor}{    StackDestructor(\&(cpu.stack\_call));  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00036}00036 \textcolor{preprocessor}{    printf("{}\(\backslash\)nCPU end successful\(\backslash\)n"{}});    \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00037}00037     exit(0);}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00039}\mbox{\hyperlink{cmd__def_8h_afd81e7d2da9f82039de8e72f3c7361a5}{00039}} \textcolor{preprocessor}{\#define CPU\_PUSH                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00040}00040 \textcolor{preprocessor}{    IS\_CONST\_BYTE\_FROM;                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00041}00041 \textcolor{preprocessor}{    IS\_REG\_BYTE\_FROM;                   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00042}00042 \textcolor{preprocessor}{    IS\_RAM\_BYTE\_FROM;                   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00043}00043 \textcolor{preprocessor}{                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00044}00044 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00045}00045 \textcolor{preprocessor}{    CPU\_ARG\_REAL\_T reg\_val   = 0;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00046}00046 \textcolor{preprocessor}{    CPU\_ARG\_REAL\_T arg\_const = 0;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00047}00047 \textcolor{preprocessor}{                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00048}00048 \textcolor{preprocessor}{    if (is\_reg) \{                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00049}00049 \textcolor{preprocessor}{        reg\_val = (CPU\_ARG\_REAL\_T)cpu.reg.registr[cpu.code[cpu.ip] -\/ 'a'] / (CPU\_ARG\_REAL\_T)PRECISION;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00050}00050 \textcolor{preprocessor}{        MOVE\_PROGRAM\_POINTER;                                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00051}00051 \textcolor{preprocessor}{    \}                                                                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00052}00052 \textcolor{preprocessor}{    if (is\_const) \{                                                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00053}00053 \textcolor{preprocessor}{        arg\_const = (CPU\_ARG\_REAL\_T)GET\_CONST\_ARG / (CPU\_ARG\_REAL\_T)PRECISION;                               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00054}00054 \textcolor{preprocessor}{        MOVE\_PROGRAM\_POINTER\_INT;                                                            \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00055}00055 \textcolor{preprocessor}{    \}                                                                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00056}00056 \textcolor{preprocessor}{    if (is\_mem) \{                                                                            \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00057}00057 \textcolor{preprocessor}{        STACK\_PUSH(GET\_RAM\_CPU.ram[(CPU\_ARG\_INT\_T)(is\_reg ? (is\_const ? (reg\_val + arg\_const) : reg\_val) : arg\_const)]);   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00058}00058 \textcolor{preprocessor}{    \}                                                                                                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00059}00059 \textcolor{preprocessor}{    else \{                                                                                                                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00060}00060 \textcolor{preprocessor}{        STACK\_PUSH((CPU\_ARG\_INT\_T)((is\_reg ? (is\_const ? (reg\_val + arg\_const) : reg\_val) : arg\_const) * PRECISION));      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00061}00061 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00063}\mbox{\hyperlink{cmd__def_8h_adec529fa2a18e6c12e9d21e520da3f2e}{00063}} \textcolor{preprocessor}{\#define CPU\_POP                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00064}00064 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T pop\_val = POP\_VALUE;    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00065}00065 \textcolor{preprocessor}{                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00066}00066 \textcolor{preprocessor}{    IS\_CONST\_BYTE\_FROM;                   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00067}00067 \textcolor{preprocessor}{    IS\_REG\_BYTE\_FROM;                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00068}00068 \textcolor{preprocessor}{    IS\_RAM\_BYTE\_FROM;                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00069}00069 \textcolor{preprocessor}{                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00070}00070 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00071}00071 \textcolor{preprocessor}{    if (is\_mem) \{                         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00072}00072 \textcolor{preprocessor}{        if (is\_reg \&\& is\_const) \{         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00073}00073 \textcolor{preprocessor}{            GET\_RAM\_CPU.ram[(GET\_REG\_ARG] / PRECISION) + (GET\_CONST\_ARG / PRECISION)] = pop\_val;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00074}00074 \textcolor{preprocessor}{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00075}00075 \textcolor{preprocessor}{            MOVE\_PROGRAM\_POINTER\_INT;                                                                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00076}00076 \textcolor{preprocessor}{        \}                                                                                              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00077}00077 \textcolor{preprocessor}{        else if (is\_reg) \{                                                                             \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00078}00078 \textcolor{preprocessor}{                GET\_RAM\_CPU.ram[GET\_REG\_ARG] / PRECISION] = pop\_val;                                   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00079}00079 \textcolor{preprocessor}{                MOVE\_PROGRAM\_POINTER;                                                                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00080}00080 \textcolor{preprocessor}{        \}                                                                                              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00081}00081 \textcolor{preprocessor}{        else if (is\_const) \{                                                                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00082}00082 \textcolor{preprocessor}{                GET\_RAM\_CPU.ram[(GET\_CONST\_ARG / PRECISION)] = pop\_val;                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00083}00083 \textcolor{preprocessor}{                MOVE\_PROGRAM\_POINTER\_INT;                                                              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00084}00084 \textcolor{preprocessor}{        \}                                                                                              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00085}00085 \textcolor{preprocessor}{    \}                                                                                                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00086}00086 \textcolor{preprocessor}{    else if (is\_reg) \{                                                                                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00087}00087 \textcolor{preprocessor}{            GET\_REG\_ARG] = pop\_val;                                                                    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00088}00088 \textcolor{preprocessor}{            MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00089}00089 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00090}00090 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00091}\mbox{\hyperlink{cmd__def_8h_a42238e8a54b19ff3510abbddd865093d}{00091}} \textcolor{preprocessor}{\#define CPU\_IN                            \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00092}00092 \textcolor{preprocessor}{    IS\_CONST\_BYTE\_FROM;                   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00093}00093 \textcolor{preprocessor}{    IS\_REG\_BYTE\_FROM;                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00094}00094 \textcolor{preprocessor}{    IS\_RAM\_BYTE\_FROM;                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00095}00095 \textcolor{preprocessor}{                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00096}00096 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00097}00097 \textcolor{preprocessor}{                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00098}00098 \textcolor{preprocessor}{    CPU\_ARG\_REAL\_T in\_val = 0;            \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00099}00099 \textcolor{preprocessor}{    scanf("{}\%lf"{}}, \&in\_val);                \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00100}00100     in\_val *= PRECISION;                  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00101}00101                                           \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00102}00102     if (is\_mem) \{                         \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00103}00103         if (is\_reg \&\& is\_const) \{         \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00104}00104             GET\_RAM\_CPU.ram[(GET\_REG\_ARG] / PRECISION) + (GET\_CONST\_ARG / PRECISION)] = (CPU\_ARG\_INT\_T)in\_val;        \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00105}00105             MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00106}00106             MOVE\_PROGRAM\_POINTER\_INT;                                                                  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00107}00107         \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00108}00108         else if (is\_reg) \{                                                                             \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00109}00109                 GET\_RAM\_CPU.ram[GET\_REG\_ARG] / PRECISION] = (CPU\_ARG\_INT\_T)in\_val;                                    \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00110}00110                 MOVE\_PROGRAM\_POINTER;                                                                  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00111}00111         \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00112}00112         else if (is\_const) \{                                                                           \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00113}00113                 GET\_RAM\_CPU.ram[(GET\_CONST\_ARG / PRECISION)] = (CPU\_ARG\_INT\_T)in\_val;                                 \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00114}00114                 MOVE\_PROGRAM\_POINTER\_INT;                                                              \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00115}00115         \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00116}00116     \}                                                                                                  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00117}00117     else if (is\_reg) \{                                                                                 \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00118}00118             GET\_REG\_ARG] = (CPU\_ARG\_INT\_T)in\_val;                                                                     \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00119}00119             MOVE\_PROGRAM\_POINTER;                                                                      \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00120}00120     \}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00122}\mbox{\hyperlink{cmd__def_8h_aa66bd4c378a0ea89f3a5dd95d9c1d519}{00122}} \textcolor{preprocessor}{\#define CPU\_OUT                                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00123}00123 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00124}00124 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T top\_val = TOP\_VALUE;                                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00125}00125 \textcolor{preprocessor}{    printf("{}\(\backslash\)n\%0.3lf\(\backslash\)n"{}}, (CPU\_ARG\_REAL\_T)top\_val / (CPU\_ARG\_REAL\_T)PRECISION);}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00127}\mbox{\hyperlink{cmd__def_8h_aea53db9c7b9bef3efab2ee8319675edf}{00127}} \textcolor{preprocessor}{\#define CPU\_ADD                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00128}00128 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00129}00129 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T first\_val  = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00130}00130 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T second\_val = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00131}00131 \textcolor{preprocessor}{    STACK\_PUSH(first\_val + second\_val);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00132}00132 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00133}\mbox{\hyperlink{cmd__def_8h_aa61065da9d812d1b2eb6bf977cdf3b09}{00133}} \textcolor{preprocessor}{\#define CPU\_SUB                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00134}00134 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00135}00135 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T first\_val  = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00136}00136 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T second\_val = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00137}00137 \textcolor{preprocessor}{    STACK\_PUSH(second\_val -\/ first\_val);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00138}00138 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00139}\mbox{\hyperlink{cmd__def_8h_aed28a23ff96d602e4565649543630af3}{00139}} \textcolor{preprocessor}{\#define CPU\_MUL                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00140}00140 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00141}00141 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T first\_val  = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00142}00142 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T second\_val = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00143}00143 \textcolor{preprocessor}{    STACK\_PUSH((second\_val * first\_val) / PRECISION);  }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00144}00144 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00145}\mbox{\hyperlink{cmd__def_8h_ab0a671573bf4e2967630577fcc4aa515}{00145}} \textcolor{preprocessor}{\#define CPU\_DIV                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00146}00146 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00147}00147 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T first\_val  = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00148}00148 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T second\_val = POP\_VALUE;                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00149}00149 \textcolor{preprocessor}{    STACK\_PUSH((CPU\_ARG\_INT\_T)((CPU\_ARG\_REAL\_T)second\_val / (CPU\_ARG\_REAL\_T)first\_val) * PRECISION); }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00150}00150 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00151}\mbox{\hyperlink{cmd__def_8h_aa5de7c3ef00fec9a3702e29c8c1c39ec}{00151}} \textcolor{preprocessor}{\#define CPU\_SQRT                                                                  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00152}00152 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                                         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00153}00153 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T val = (CPU\_ARG\_INT\_T)sqrt((CPU\_ARG\_REAL\_T)POP\_VALUE / (CPU\_ARG\_REAL\_T)PRECISION) * PRECISION;  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00154}00154 \textcolor{preprocessor}{    STACK\_PUSH(val);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00156}\mbox{\hyperlink{cmd__def_8h_aa6285e7b96f6c6c2390b13fd98ac32c6}{00156}} \textcolor{preprocessor}{\#define JUMP\_IP              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00157}00157 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00158}00158 \textcolor{preprocessor}{    cpu.ip = GET\_CONST\_ARG; }}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00160}\mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{00160}} \textcolor{preprocessor}{\#define IF\_JUMP\_WITH\_CONDITION(symbol)          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00161}00161 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00162}00162 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T first\_val  = POP\_VALUE;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00163}00163 \textcolor{preprocessor}{    CPU\_ARG\_INT\_T second\_val = POP\_VALUE;       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00164}00164 \textcolor{preprocessor}{                                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00165}00165 \textcolor{preprocessor}{    if (second\_val symbol first\_val) \{          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00166}00166 \textcolor{preprocessor}{        cpu.ip = GET\_CONST\_ARG;                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00167}00167 \textcolor{preprocessor}{    \} else \{                                    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00168}00168 \textcolor{preprocessor}{        MOVE\_PROGRAM\_POINTER\_INT;               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00169}00169 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00170}00170 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00171}\mbox{\hyperlink{cmd__def_8h_abb9f964ad50916895a15239d83e7c93b}{00171}} \textcolor{preprocessor}{\#define SPECIAL\_AHATINA         \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00172}00172 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER\_INT;   \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00173}00173 \textcolor{preprocessor}{    int count = 0;              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00174}00174 \textcolor{preprocessor}{                                \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00175}00175 \textcolor{preprocessor}{    printf("{}\%s"{}} ,"{}Akhatina got tired and went to bed. Wake me up in 12 hours.\(\backslash\)n"{});   \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00176}00176     getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00177}00177     printf("{}\%s"{} ,"{}I told you in 12 hours!!!\(\backslash\)n"{});                                     \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00178}00178     getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00179}00179     printf("{}\%s"{} ,"{}If you try to wake me up again, I'll burn out every transistor"{}    \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00180}00180            "{}of your real processor and start full formatting of all disks."{}          \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00181}00181            "{}EVEN CLOUD ONES!!!\(\backslash\)nThis is the latest Chinese warning."{});               \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00182}00182     getchar();                                                                       \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00183}00183     printf("{}\%s"{} ,"{}How are you ******.\(\backslash\)n"{});                                           \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00184}00184     printf("{}\%s"{} ,"{}Start formatting disk C: 0\%\(\backslash\)n"{});                                   \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00185}00185                                                                                \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00186}00186     while (count < 100) \{                                                      \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00187}00187         ++count;                                                               \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00188}00188         printf("{}                         \%d\%\% \(\backslash\)n"{}, count);                     \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00189}00189         SLEEP\_COMMAND;                                                         \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00190}00190     \}                                                                          \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00191}00191                                                                                \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00192}00192     SYSTEM\_TASK;                                                                  }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00193}00193 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00194}\mbox{\hyperlink{cmd__def_8h_ae60b0c6aaef61c9962e379d2de42d5ac}{00194}} \textcolor{preprocessor}{\#define CPU\_CALL                                               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00195}00195 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00196}00196 \textcolor{preprocessor}{    STACK\_PUSH\_CALL(cpu.ip + sizeof(CPU\_ARG\_INT\_T));           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00197}00197 \textcolor{preprocessor}{    cpu.ip = GET\_CONST\_ARG;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00198}00198 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00199}\mbox{\hyperlink{cmd__def_8h_a64b55499cb0b49c03e02cca0fe7fd15a}{00199}} \textcolor{preprocessor}{\#define CPU\_RET cpu.ip = POP\_VAL\_STACK\_CALL;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00200}00200 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00201}\mbox{\hyperlink{cmd__def_8h_a54880f5fd2b4101cbdd51d156dee924e}{00201}} \textcolor{preprocessor}{\#define CPU\_GRAPH                                                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00202}00202 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00203}00203 \textcolor{preprocessor}{    DrawInTerminal(GET\_RAM\_CPU.ram, GET\_RAM\_CPU.size\_ram);}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00204}00204 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00205}\mbox{\hyperlink{cmd__def_8h_ae2d485ee57f568f65d23bf6c26608066}{00205}} \textcolor{preprocessor}{\#define CPU\_STROUT                                                                                 \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00206}00206 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                                                                          \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00207}00207 \textcolor{preprocessor}{    for (size\_t cur\_symb = GET\_CONST\_ARG + 2; cpu.code[cur\_symb] != '\$'; ++cur\_symb) \{             \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00208}00208 \textcolor{preprocessor}{        printf("{}\%c"{}}, cpu.code[cur\_symb]);                                                          \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00209}00209     \}                                                                                              \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00210}00210     printf("{}\(\backslash\)n"{});                                                                                  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00211}00211     MOVE\_PROGRAM\_POINTER\_INT;}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00212}00212 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00213}00213 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00214}\mbox{\hyperlink{cmd__def_8h_a413e3af897ce5e5b81dd0a35210759f1}{00214}} \textcolor{preprocessor}{\#define CPU\_DB                                      \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00215}00215 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00216}00216 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;                           \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00217}00217 \textcolor{preprocessor}{    for (; cpu.code[cpu.ip] != '\$';) \{              \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00218}00218 \textcolor{preprocessor}{        MOVE\_PROGRAM\_POINTER;                       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00219}00219 \textcolor{preprocessor}{    \}                                               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00220}00220 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00221}00221 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00222}00222 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00223}\mbox{\hyperlink{cmd__def_8h_a000ce987887c4772b5e5fe1c0dddc3e8}{00223}} \textcolor{preprocessor}{\#define CPU\_MYAW    \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00224}00224 \textcolor{preprocessor}{    MOVE\_PROGRAM\_POINTER;\(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00225}00225 \textcolor{preprocessor}{    printf("{}\(\backslash\)n"{}});   \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00226}00226     printf("{}\%s\(\backslash\)n\%s\(\backslash\)n\%s\(\backslash\)n\%s\(\backslash\)n\%s"{}, "{}     .-\/-\/-\/-\/.   @   @  "{}, "{}    / .-\/ -\/.`.  \(\backslash\)v/   "{}, "{}   | | '\(\backslash\) \(\backslash\) \(\backslash\)\_/ )    "{},  "{}  ,-\/\(\backslash\) `-\/.' /.'  /    "{}, "{} '-\/-\/-\/`-\/-\/-\/-\/'-\/-\/-\/-\/'     "{});  \(\backslash\)}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00227}00227     printf("{}\(\backslash\)n"{});}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00228}00228 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00229}00229 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00230}00230 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00231}00231 \textcolor{comment}{//DEF\_CMD("{}name\_command"{}, num\_args, is\_lvalue\_arg, ident\_of\_type, command)}}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00232}00232 }
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00233}00233 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(HLT,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_a71f3261b5dd6e03a06a2efdea2e0e342}{CPU\_HLT}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00234}00234 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(MYAW,   0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_a000ce987887c4772b5e5fe1c0dddc3e8}{CPU\_MYAW}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00235}00235 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(PUSH,   1, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_afd81e7d2da9f82039de8e72f3c7361a5}{CPU\_PUSH}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00236}00236 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(POP,    1, \textcolor{keyword}{true},  0, \mbox{\hyperlink{cmd__def_8h_adec529fa2a18e6c12e9d21e520da3f2e}{CPU\_POP}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00237}00237 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(IN,     1, \textcolor{keyword}{true},  0, \mbox{\hyperlink{cmd__def_8h_a42238e8a54b19ff3510abbddd865093d}{CPU\_IN}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00238}00238 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(OUT,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aa66bd4c378a0ea89f3a5dd95d9c1d519}{CPU\_OUT}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00239}00239 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(ADD,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aea53db9c7b9bef3efab2ee8319675edf}{CPU\_ADD}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00240}00240 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(SUB,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aa61065da9d812d1b2eb6bf977cdf3b09}{CPU\_SUB}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00241}00241 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(MUL,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aed28a23ff96d602e4565649543630af3}{CPU\_MUL}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00242}00242 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(DIV,    0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_ab0a671573bf4e2967630577fcc4aa515}{CPU\_DIV}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00243}00243 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(SQRT,   0, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aa5de7c3ef00fec9a3702e29c8c1c39ec}{CPU\_SQRT}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00244}00244 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JMP,    1, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_aa6285e7b96f6c6c2390b13fd98ac32c6}{JUMP\_IP}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00245}00245 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JA,     1, \textcolor{keyword}{false}, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(> ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00246}00246 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JAE,    1, false, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(>= ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00247}00247 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JB,     1, false, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(< ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00248}00248 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JBE,    1, false, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(<= ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00249}00249 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JE,     1, false, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(== ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00250}00250 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(JNE,    1, false, 0, \mbox{\hyperlink{cmd__def_8h_ac9023fa45013742ea6e38c40dfe58b48}{IF\_JUMP\_WITH\_CONDITION}}(!= ))}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00251}00251 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(AH,     1, false, 0, \mbox{\hyperlink{cmd__def_8h_abb9f964ad50916895a15239d83e7c93b}{SPECIAL\_AHATINA}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00252}00252 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(CALL,   1, false, 0, \mbox{\hyperlink{cmd__def_8h_ae60b0c6aaef61c9962e379d2de42d5ac}{CPU\_CALL}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00253}00253 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(RET,    0, false, 0, \mbox{\hyperlink{cmd__def_8h_a64b55499cb0b49c03e02cca0fe7fd15a}{CPU\_RET}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00254}00254 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(GRAPH,  0, false, 0, \mbox{\hyperlink{cmd__def_8h_a54880f5fd2b4101cbdd51d156dee924e}{CPU\_GRAPH}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00255}00255 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(STROUT, 1, false, 0, \mbox{\hyperlink{cmd__def_8h_ae2d485ee57f568f65d23bf6c26608066}{CPU\_STROUT}})}
+\DoxyCodeLine{\Hypertarget{cmd__def_8h_source_l00256}00256 \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\_CMD}}(DB,     1, false, 1, \mbox{\hyperlink{cmd__def_8h_a413e3af897ce5e5b81dd0a35210759f1}{CPU\_DB}})}
+
+\end{DoxyCode}

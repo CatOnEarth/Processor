@@ -1,0 +1,196 @@
+\hypertarget{disassembler_8cpp_source}{}\doxysection{disassembler.\+cpp}
+\label{disassembler_8cpp_source}\index{processor/disassembler/disassembler.cpp@{processor/disassembler/disassembler.cpp}}
+\mbox{\hyperlink{disassembler_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{disassembler_8h}{disassembler.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}../base\_lib/base\_lib.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include "{}../header/header.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include "{}../commands/commands.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include "{}../constants/constants.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00006}00006 \textcolor{preprocessor}{\#include "{}../types/types.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00007}00007 \textcolor{preprocessor}{\#include "{}../logger/logger.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00009}\mbox{\hyperlink{disassembler_8cpp_a5e570f8c6ea5bb6f0f22542d7c497fa1}{00009}} \textcolor{preprocessor}{\#define WriteCommand(command, buffer, count\_byte, num\_args, ident\_of\_type, file\_disassembler) WriteCommand\_\_(command, buffer, count\_byte, num\_args,  \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00010}00010 \textcolor{preprocessor}{                                                                                                             ident\_of\_type, file\_disassembler,       \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00011}00011 \textcolor{preprocessor}{                                                                                                             LOCATION\_STRUCT\_CALL\_\_\{LOCATION\_\_\})}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00012}00012 \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_a06715ce28820e46a1471d1bfcaa54be3}{WriteCommand\_\_}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* command, \textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{size\_t}* count\_byte, \textcolor{keywordtype}{int} num\_args, \textcolor{keywordtype}{int} ident\_of\_type, FILE* file\_disassembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} call\_place);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00014}\mbox{\hyperlink{disassembler_8cpp_afd564cdcbdf1120137f8f23107f6bf24}{00014}} \textcolor{preprocessor}{\#define WriteArgument(buffer, count\_byte, ident\_of\_type, file\_disassembler) WriteArgument\_\_(buffer, count\_byte, ident\_of\_type,     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00015}00015 \textcolor{preprocessor}{                                                                                            file\_disassembler,                     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00016}00016 \textcolor{preprocessor}{                                                                                            LOCATION\_STRUCT\_CALL\_\_\{ LOCATION\_\_ \})}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00017}00017 \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_a936e541a541af3fff15ebfabfdcbcc3e}{WriteArgument\_\_}}(\textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{size\_t}* count\_byte, \textcolor{keywordtype}{int} ident\_of\_type, FILE* file\_disassembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} call\_place);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00019}00019 \textcolor{keyword}{static} \textcolor{keywordtype}{int} LogSyntaxiceDisassembler(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* err\_syntax);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00021}\mbox{\hyperlink{disassembler_8cpp_a6d4e16690699365290e5d1bbef8bd07b}{00021}} \textcolor{keyword}{const} \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_a6d4e16690699365290e5d1bbef8bd07b}{MAKE\_NULL\_FLAGS\_BYTE}} = 31;      }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00023}00023 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* LOG\_SYNTAX\_FILE\_NAME = \textcolor{stringliteral}{"{}log\_syntax.txt"{}};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00024}00024 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* NAME\_MODULE\_DISASM   = \textcolor{stringliteral}{"{}DISASSEMBLER"{}};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00026}00026 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00028}\mbox{\hyperlink{disassembler_8cpp_a71a35f16aef083152231f906234e6002}{00028}} \textcolor{preprocessor}{\#define DEF\_CMD(cmd\_name, num\_args, is\_leftside\_arg, ident\_of\_type, ...)                                        \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00029}00029 \textcolor{preprocessor}{    else if (((int)buffer[count\_byte] \& MAKE\_NULL\_FLAGS\_BYTE) == (int)PROCESSOR\_COMMANDS::CMD\_\#\#cmd\_name) \{     \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00030}00030 \textcolor{preprocessor}{        WriteCommand(\#cmd\_name, buffer, \&count\_byte, num\_args, ident\_of\_type, file\_disassembler);               \(\backslash\)}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00031}00031 \textcolor{preprocessor}{    \}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00033}\mbox{\hyperlink{disassembler_8cpp_af58afe39a540096fbe8acc080e9e94b2}{00033}} \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_af58afe39a540096fbe8acc080e9e94b2}{CreateTextFromAssembler}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* filename\_assembler, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* filename\_output) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00034}00034     FILE* file\_assembler = fopen(filename\_assembler, \textcolor{stringliteral}{"{}rb"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00035}00035     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_assembler)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00036}00036         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Cant open file with assembler"{}}, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}}(), \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(file\_assembler));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00037}00037         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00040}00040     \mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e}{HEADER\_ASM\_FILE}} header = \{\};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00041}00041     fread(\&header, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e}{HEADER\_ASM\_FILE}}), 1, file\_assembler);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00042}00042     fseek(file\_assembler, \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e}{HEADER\_ASM\_FILE}}), SEEK\_SET);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00044}00044     \textcolor{keywordflow}{if} (header.\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e_a1d3e76864219cfbb237e4549baa09f8b}{ver\_asm}} != \mbox{\hyperlink{header_8h_a877047afa145c3a0328206b1ef3da78e}{VER\_ASSEMBLER\_CMD}}) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00045}00045         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Version of header assembler file do not equal current version. Please re-\/create assembler file."{}}, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}}(),}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00046}00046                         \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(header.\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e_a1d3e76864219cfbb237e4549baa09f8b}{ver\_asm}}));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00047}00047         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00049}00049 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00050}00050     \textcolor{keywordtype}{char}* buffer = (\textcolor{keywordtype}{char}*)calloc(header.\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e_aa90995737be46f1dc466103ffa0c0920}{size\_in\_byte}}, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00051}00051     \textcolor{keywordtype}{size\_t} num\_read\_symb = fread(buffer, \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}), header.\mbox{\hyperlink{struct_h_e_a_d_e_r___a_s_m___f_i_l_e_aa90995737be46f1dc466103ffa0c0920}{size\_in\_byte}}, file\_assembler);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00053}00053     fclose(file\_assembler);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00055}00055     FILE* file\_disassembler = fopen(filename\_output, \textcolor{stringliteral}{"{}w"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00056}00056     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_assembler)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00057}00057         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Cant open file to write disassembler code"{}}, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}}(), \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(file\_assembler));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00058}00058         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00059}00059     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00061}00061     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} count\_byte = 0; count\_byte < num\_read\_symb;) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00062}00062         \textcolor{keywordflow}{if} (1 == 0) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00063}00063 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00064}00064         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00066}00066 \textcolor{preprocessor}{        \#include "{}../commands/cmd\_def.h"{}}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00067}00067 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00068}00068         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00069}00069             LogSyntaxiceDisassembler(\textcolor{stringliteral}{"{}Failed: Disassembler cant recognize symb"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00070}00070             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00071}00071         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00072}00072     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00074}00074     fclose(file\_disassembler);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00076}00076     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00077}00077 \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00079}00079 \textcolor{preprocessor}{\#undef DEF\_CMD}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00081}\mbox{\hyperlink{disassembler_8cpp_a06715ce28820e46a1471d1bfcaa54be3}{00081}} \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_a06715ce28820e46a1471d1bfcaa54be3}{WriteCommand\_\_}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* command, \textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{size\_t}* count\_byte, \textcolor{keywordtype}{int} num\_args, \textcolor{keywordtype}{int} ident\_of\_type, FILE* file\_disassembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} call\_place) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00082}00082     \textcolor{keywordflow}{if} (\_IsBadReadPtr(buffer)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00083}00083         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Bad ptr"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(buffer));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00084}00084         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00085}00085     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00086}00086     \textcolor{keywordflow}{if} (\_IsBadReadPtr(count\_byte)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00087}00087         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Bad ptr"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(count\_byte));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00088}00088         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00089}00089     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00090}00090     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_disassembler)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00091}00091         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Cant open file to write disassembler code"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(file\_disassembler));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00092}00092         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00093}00093     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00094}00094 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00095}00095     fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%s"{}}, command);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00096}00096     \textcolor{keywordflow}{if} (num\_args > 0) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00097}00097         \mbox{\hyperlink{disassembler_8cpp_afd564cdcbdf1120137f8f23107f6bf24}{WriteArgument}}(buffer, count\_byte, ident\_of\_type, file\_disassembler);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00098}00098     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00099}00099     \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00100}00100         ++(*count\_byte);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00101}00101     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00102}00102     fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00104}00104     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00105}00105 \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00107}\mbox{\hyperlink{disassembler_8cpp_a936e541a541af3fff15ebfabfdcbcc3e}{00107}} \textcolor{keywordtype}{int} \mbox{\hyperlink{disassembler_8cpp_a936e541a541af3fff15ebfabfdcbcc3e}{WriteArgument\_\_}}(\textcolor{keywordtype}{char}* buffer, \textcolor{keywordtype}{size\_t}* count\_byte, \textcolor{keywordtype}{int} ident\_of\_type, FILE* file\_disassembler, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} call\_place) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00108}00108     \textcolor{keywordflow}{if} (\_IsBadReadPtr(buffer)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00109}00109         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Bad ptr"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(buffer));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00110}00110         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00111}00111     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00112}00112     \textcolor{keywordflow}{if} (\_IsBadReadPtr(count\_byte)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00113}00113         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Bad ptr"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(count\_byte));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00114}00114         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00115}00115     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00116}00116     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_disassembler)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00117}00117         \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(NAME\_MODULE\_DISASM, \textcolor{stringliteral}{"{}Failed: Cant open file to write disassembler code"{}}, call\_place, \mbox{\hyperlink{base__lib_8h_a53398fae6dde0701a72e5df6e424f222}{LOCATION\_VAR\_\_}}(file\_disassembler));}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00118}00118         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00119}00119     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00120}00120     \textcolor{keywordflow}{if} (ident\_of\_type == 0) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00121}00121         \textcolor{keywordtype}{bool} is\_mem = (int)buffer[*count\_byte] \& \mbox{\hyperlink{constants_8h_a3f54e9863c6eba0d30b6219747359986}{RAM\_ARG\_CMD}};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00122}00122         \textcolor{keywordtype}{bool} is\_reg = (int)buffer[*count\_byte] \& \mbox{\hyperlink{constants_8h_a93af39b11a8f267fc9cb0886d32a61b5}{REG\_ARG\_CMD}};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00123}00123         \textcolor{keywordtype}{bool} is\_const = (int)buffer[*count\_byte] \& \mbox{\hyperlink{constants_8h_aa28616ca4f1da3fb124185dfc58d814a}{CONST\_ARG\_CMD}};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00124}00124 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00125}00125         ++(*count\_byte);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00127}00127         \textcolor{keywordtype}{char}           reg[2] = \{ 0 \};}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00128}00128         \mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}} arg\_const = 0;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00129}00129 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00130}00130         \textcolor{keywordflow}{if} (is\_reg) reg[0] = buffer[(*count\_byte)++];}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00131}00131         \textcolor{keywordflow}{if} (is\_const) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00132}00132             arg\_const = (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})((\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})*((\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}}*)(buffer + *count\_byte)) / (\mbox{\hyperlink{types_8h_a21a4090f88d5442daad83c66582cb5ab}{CPU\_ARG\_REAL\_T}})\mbox{\hyperlink{constants_8h_ac96357b1d5d7d9565e41d8fab5a07a60}{PRECISION}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00133}00133             (*count\_byte) += \textcolor{keyword}{sizeof}(\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00134}00134         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00135}00135 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00136}00136         \textcolor{keywordflow}{if} (is\_mem) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00137}00137             fprintf(file\_disassembler, \textcolor{stringliteral}{"{} ["{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00138}00138             \textcolor{keywordflow}{if} (is\_reg \&\& is\_const) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00139}00139                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%cx+\%lld"{}}, reg[0], (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})arg\_const);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00140}00140             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00141}00141             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (is\_reg) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00142}00142                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%cx"{}}, reg[0]);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00143}00143             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00144}00144             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (is\_const) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00145}00145                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%lld"{}}, (\mbox{\hyperlink{types_8h_a859a84687031d57359d03fd7c64bca1a}{CPU\_ARG\_INT\_T}})arg\_const);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00146}00146             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00147}00147             fprintf(file\_disassembler, \textcolor{stringliteral}{"{}]"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00148}00148         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00149}00149         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00150}00150             \textcolor{keywordflow}{if} (is\_reg \&\& is\_const) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00151}00151                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{} \%cx+\%.3f"{}}, reg[0], arg\_const);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00152}00152             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00153}00153             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (is\_reg) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00154}00154                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{} \%cx"{}}, reg[0]);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00155}00155             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00156}00156             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (is\_const) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00157}00157                 fprintf(file\_disassembler, \textcolor{stringliteral}{"{} \%.3f"{}}, arg\_const);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00158}00158             \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00159}00159         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00160}00160     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00161}00161     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (ident\_of\_type == 1) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00162}00162         ++(*count\_byte);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00163}00163         fprintf(file\_disassembler, \textcolor{stringliteral}{"{} \%c"{}}, buffer[(*count\_byte)]);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00164}00164         ++(*count\_byte);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00165}00165         \textcolor{keywordflow}{for} (; buffer[(*count\_byte)] != \textcolor{charliteral}{'\$'}; ++(*count\_byte)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00166}00166             fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%c"{}}, buffer[(*count\_byte)]);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00167}00167         \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00168}00168         fprintf(file\_disassembler, \textcolor{stringliteral}{"{}\%c"{}}, buffer[(*count\_byte)]);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00169}00169         ++(*count\_byte);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00170}00170     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00171}00171 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00172}00172     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00173}00173 \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00174}00174 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00175}00175 \textcolor{keyword}{static} \textcolor{keywordtype}{int} LogSyntaxiceDisassembler(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* err\_syntax) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00176}00176     fprintf(stderr, \textcolor{stringliteral}{"{}Disassembler detect syntaxis error: \%s.\(\backslash\)n"{}}, err\_syntax);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00178}00178     FILE* file\_log = fopen(LOG\_SYNTAX\_FILE\_NAME, \textcolor{stringliteral}{"{}a"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00179}00179     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_log)) \{}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00180}00180         printf(\textcolor{stringliteral}{"{}Disasembler has error: Cant open log file\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00181}00181         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00182}00182     \}}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00183}00183 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00184}00184     setvbuf(file\_log, (\textcolor{keywordtype}{char}*)NULL, \_IONBF, 0);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00185}00185     fprintf(file\_log, \textcolor{stringliteral}{"{}Disassembler detect syntaxis error: \%s.\(\backslash\)n"{}}, err\_syntax);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00186}00186 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00187}00187     fclose(file\_log);}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00188}00188 }
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00189}00189     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{disassembler_8cpp_source_l00190}00190 \}}
+
+\end{DoxyCode}

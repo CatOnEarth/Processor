@@ -1,0 +1,107 @@
+\hypertarget{text__lib_8cpp}{}\doxysection{processor/text\+\_\+lib/text\+\_\+lib.cpp File Reference}
+\label{text__lib_8cpp}\index{processor/text\_lib/text\_lib.cpp@{processor/text\_lib/text\_lib.cpp}}
+{\ttfamily \#include \char`\"{}text\+\_\+lib.\+h\char`\"{}}\newline
+Include dependency graph for text\+\_\+lib.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{text__lib_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_a98d2e4eb14a4d1513afcb107f0457827}{Swap\+Str\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$left, \mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$right, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_a21681622636f6fd494b74d9ab330755c}{Text\+Constructor\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_a0199f61301862720c2377efaf93fc0cc}{Text\+Destructor\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_aab724c7dcae958e775c5566d46c83575}{Get\+Memory\+For\+Text\+Buf\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$programm\+\_\+code\+\_\+text, FILE $\ast$file\+\_\+code\+\_\+text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_ae3dfe28e2b7feb94af6bfb3d2c5560df}{Count\+Num\+Of\+Strings\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$str\+\_\+input, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{text__lib_8cpp_a1c9dd5637836199ed26afbb1e21748f7}{Erase\+Space\+Start\+End\+Str\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$str\+\_\+input, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \mbox{\hyperlink{text__lib_8cpp_ad262b6f225184b2cf907834223edf4d0}{LOG\+\_\+\+FILE\+\_\+\+NAME}} = \char`\"{}log\+\_\+text\+\_\+lib.\+txt\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{text__lib_8cpp_ae3dfe28e2b7feb94af6bfb3d2c5560df}\label{text__lib_8cpp_ae3dfe28e2b7feb94af6bfb3d2c5560df}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!CountNumOfStrings\_\_@{CountNumOfStrings\_\_}}
+\index{CountNumOfStrings\_\_@{CountNumOfStrings\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{CountNumOfStrings\_\_()}{CountNumOfStrings\_\_()}}
+{\footnotesize\ttfamily int Count\+Num\+Of\+Strings\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{str\+\_\+input,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+Function to count strings in buffer of text code 
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00097}{97}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{text__lib_8cpp_a1c9dd5637836199ed26afbb1e21748f7}\label{text__lib_8cpp_a1c9dd5637836199ed26afbb1e21748f7}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!EraseSpaceStartEndStr\_\_@{EraseSpaceStartEndStr\_\_}}
+\index{EraseSpaceStartEndStr\_\_@{EraseSpaceStartEndStr\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{EraseSpaceStartEndStr\_\_()}{EraseSpaceStartEndStr\_\_()}}
+{\footnotesize\ttfamily int Erase\+Space\+Start\+End\+Str\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{str\+\_\+input,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00117}{117}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{text__lib_8cpp_aab724c7dcae958e775c5566d46c83575}\label{text__lib_8cpp_aab724c7dcae958e775c5566d46c83575}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!GetMemoryForTextBuf\_\_@{GetMemoryForTextBuf\_\_}}
+\index{GetMemoryForTextBuf\_\_@{GetMemoryForTextBuf\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{GetMemoryForTextBuf\_\_()}{GetMemoryForTextBuf\_\_()}}
+{\footnotesize\ttfamily int Get\+Memory\+For\+Text\+Buf\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{programm\+\_\+code\+\_\+text,  }\item[{FILE $\ast$}]{file\+\_\+code\+\_\+text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00075}{75}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{text__lib_8cpp_a98d2e4eb14a4d1513afcb107f0457827}\label{text__lib_8cpp_a98d2e4eb14a4d1513afcb107f0457827}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!SwapStr\_\_@{SwapStr\_\_}}
+\index{SwapStr\_\_@{SwapStr\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{SwapStr\_\_()}{SwapStr\_\_()}}
+{\footnotesize\ttfamily int Swap\+Str\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{left,  }\item[{\mbox{\hyperlink{struct_string_struct}{String\+Struct}} $\ast$}]{right,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+Function for swap two \mbox{\hyperlink{struct_string_struct}{String\+Struct}} elems 
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00010}{10}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{text__lib_8cpp_a21681622636f6fd494b74d9ab330755c}\label{text__lib_8cpp_a21681622636f6fd494b74d9ab330755c}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!TextConstructor\_\_@{TextConstructor\_\_}}
+\index{TextConstructor\_\_@{TextConstructor\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{TextConstructor\_\_()}{TextConstructor\_\_()}}
+{\footnotesize\ttfamily int Text\+Constructor\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+Constructor default 
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00031}{31}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{text__lib_8cpp_a0199f61301862720c2377efaf93fc0cc}\label{text__lib_8cpp_a0199f61301862720c2377efaf93fc0cc}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!TextDestructor\_\_@{TextDestructor\_\_}}
+\index{TextDestructor\_\_@{TextDestructor\_\_}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{TextDestructor\_\_()}{TextDestructor\_\_()}}
+{\footnotesize\ttfamily int Text\+Destructor\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+Destructor 
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00053}{53}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{text__lib_8cpp_ad262b6f225184b2cf907834223edf4d0}\label{text__lib_8cpp_ad262b6f225184b2cf907834223edf4d0}} 
+\index{text\_lib.cpp@{text\_lib.cpp}!LOG\_FILE\_NAME@{LOG\_FILE\_NAME}}
+\index{LOG\_FILE\_NAME@{LOG\_FILE\_NAME}!text\_lib.cpp@{text\_lib.cpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_FILE\_NAME}{LOG\_FILE\_NAME}}
+{\footnotesize\ttfamily const char$\ast$ LOG\+\_\+\+FILE\+\_\+\+NAME = \char`\"{}log\+\_\+text\+\_\+lib.\+txt\char`\"{}}
+
+
+
+Definition at line \mbox{\hyperlink{text__lib_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{text__lib_8cpp_source}{text\+\_\+lib.\+cpp}}.
+

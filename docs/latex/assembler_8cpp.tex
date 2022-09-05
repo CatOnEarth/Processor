@@ -1,0 +1,383 @@
+\hypertarget{assembler_8cpp}{}\doxysection{processor/assembler/assembler.cpp File Reference}
+\label{assembler_8cpp}\index{processor/assembler/assembler.cpp@{processor/assembler/assembler.cpp}}
+{\ttfamily \#include \char`\"{}assembler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}assembler\+\_\+constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../commands/commands.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../types/types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../constants/constants.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../header/header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../logger/logger.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../commands/cmd\+\_\+def.\+h\char`\"{}}\newline
+Include dependency graph for assembler.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{assembler_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_a9707dc7eece8be637417d223c340d671}{Input\+Text\+Code}}(programm\+\_\+code\+\_\+text,  file\+\_\+code\+\_\+text)~\mbox{\hyperlink{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66}{Input\+Text\+Code\+\_\+\+\_\+}}(programm\+\_\+code\+\_\+text, file\+\_\+code\+\_\+text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_a78032e11d175ca49781c1fc186e9d8ae}{Text\+Separate}}(text)~\mbox{\hyperlink{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13}{Text\+Separate\+\_\+\+\_\+}}(text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_aa45fe2ea669253747fd6fd3b139a6888}{Change\+Words\+To\+Codes}}(programm\+\_\+code\+\_\+text,  filename\+\_\+assembler\+\_\+text,  count\+\_\+labels,  labels\+\_\+arr,  step)
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_abaf297d2c4ec598550c086357ec3159b}{Separate\+Text\+By\+End\+Of\+Line}}(text)~\mbox{\hyperlink{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf}{Separate\+Text\+By\+End\+Of\+Line\+\_\+\+\_\+}}(text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_aad8df7b0e215b3f00c92970c93f63546}{Parse\+Command}}(num\+\_\+cmd,  commands\+\_\+arr,  ip,  is\+\_\+was\+\_\+hlt)~\mbox{\hyperlink{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950}{Parse\+Command\+\_\+\+\_\+}}(num\+\_\+cmd, commands\+\_\+arr, ip, is\+\_\+was\+\_\+hlt, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_a42688d67fd73301b913c4383d02e20a6}{Parse\+Argument}}(commands\+\_\+arr,  cmd,  cur\+\_\+line,  ip,  pointer\+\_\+to\+\_\+command,  args,  is\+\_\+leftside\+\_\+arg,  count\+\_\+labels,  labels\+\_\+arr,  step)~        \mbox{\hyperlink{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a}{Parse\+Argument\+\_\+\+\_\+}}(commands\+\_\+arr, cmd, cur\+\_\+line, ip, pointer\+\_\+to\+\_\+command, args, is\+\_\+leftside\+\_\+arg, count\+\_\+labels, labels\+\_\+arr, step, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_aaab0530c6d8af69924c3080d65c39c3f}{Find\+Pos\+Label}}(label,  count\+\_\+labels,  labels\+\_\+arr)~\mbox{\hyperlink{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc}{Find\+Pos\+Label\+\_\+\+\_\+}}(label, count\+\_\+labels, labels\+\_\+arr, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_aec08df4edf41614a6ac9f60397973821}{Set\+Pos\+Label}}(label,  cur\+\_\+line,  ip,  count\+\_\+labels,  labels\+\_\+arr)~\mbox{\hyperlink{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444}{Set\+Pos\+Label\+\_\+\+\_\+}}(label, cur\+\_\+line, ip, count\+\_\+labels, labels\+\_\+arr,  \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_accf60a92436cd7bae10ba7f6a424408b}{Write\+Assembler\+To\+File}}(code\+\_\+arr,  size,  filename\+\_\+assembler\+\_\+text)~        \mbox{\hyperlink{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560}{Write\+Assembler\+To\+File\+\_\+\+\_\+}}(code\+\_\+arr, size, filename\+\_\+assembler\+\_\+text,  \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})
+\item 
+\#define \mbox{\hyperlink{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}{DEF\+\_\+\+CMD}}(cmd\+\_\+name,  num\+\_\+args,  is\+\_\+leftside\+\_\+arg, ...)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66}{Input\+Text\+Code\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$programm\+\_\+code\+\_\+text, FILE $\ast$file\+\_\+code\+\_\+text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13}{Text\+Separate\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_ac04d62b67eaf1f2ba53c852058c9ef8d}{Change\+Words\+To\+Codes\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$programm\+\_\+code\+\_\+text, const char $\ast$filename\+\_\+assembler\+\_\+text, size\+\_\+t $\ast$count\+\_\+labels, \mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$labels\+\_\+arr, int step, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf}{Separate\+Text\+By\+End\+Of\+Line\+\_\+\+\_\+}} (\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+char $\ast$ \mbox{\hyperlink{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950}{Parse\+Command\+\_\+\+\_\+}} (int num\+\_\+cmd, char $\ast$commands\+\_\+arr, size\+\_\+t $\ast$ip, bool $\ast$is\+\_\+was\+\_\+hlt, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a}{Parse\+Argument\+\_\+\+\_\+}} (char $\ast$commands\+\_\+arr, char $\ast$cmd, int num\+\_\+line, size\+\_\+t $\ast$ip, char $\ast$pointer\+\_\+to\+\_\+command, char $\ast$args, bool is\+\_\+leftside\+\_\+arg, size\+\_\+t $\ast$count\+\_\+labels, \mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$labels\+\_\+arr, int step, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+bool \mbox{\hyperlink{assembler_8cpp_ad0a62cf4a9385b06fb35dac24f0a0032}{Is\+Correct\+Register}} (char reg)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc}{Find\+Pos\+Label\+\_\+\+\_\+}} (const char $\ast$label, size\+\_\+t count\+\_\+labels, \mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$labels\+\_\+arr, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444}{Set\+Pos\+Label\+\_\+\+\_\+}} (char $\ast$label, int cur\+\_\+line, size\+\_\+t ip, size\+\_\+t $\ast$count\+\_\+labels, \mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$labels\+\_\+arr, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560}{Write\+Assembler\+To\+File\+\_\+\+\_\+}} (char $\ast$code\+\_\+arr, size\+\_\+t size, const char $\ast$filename\+\_\+assembler\+\_\+text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\item 
+int \mbox{\hyperlink{assembler_8cpp_a5c42cac12807d3641ce2005da1e5cf55}{Create\+Assembler\+File\+\_\+\+\_\+}} (const char $\ast$filename\+\_\+code, const char $\ast$filename\+\_\+asm, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}} call\+\_\+place)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{assembler_8cpp_aa45fe2ea669253747fd6fd3b139a6888}\label{assembler_8cpp_aa45fe2ea669253747fd6fd3b139a6888}} 
+\index{assembler.cpp@{assembler.cpp}!ChangeWordsToCodes@{ChangeWordsToCodes}}
+\index{ChangeWordsToCodes@{ChangeWordsToCodes}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ChangeWordsToCodes}{ChangeWordsToCodes}}
+{\footnotesize\ttfamily \#define Change\+Words\+To\+Codes(\begin{DoxyParamCaption}\item[{}]{programm\+\_\+code\+\_\+text,  }\item[{}]{filename\+\_\+assembler\+\_\+text,  }\item[{}]{count\+\_\+labels,  }\item[{}]{labels\+\_\+arr,  }\item[{}]{step }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \mbox{\hyperlink{assembler_8cpp_ac04d62b67eaf1f2ba53c852058c9ef8d}{ChangeWordsToCodes\_\_}}(programm\_code\_text, filename\_assembler\_text, count\_labels, labels\_arr,  step,    \(\backslash\)}
+\DoxyCodeLine{                             \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\_\_}}\})}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00024}{24}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}\label{assembler_8cpp_ae384a5d715c52739f62c4a42d033c87c}} 
+\index{assembler.cpp@{assembler.cpp}!DEF\_CMD@{DEF\_CMD}}
+\index{DEF\_CMD@{DEF\_CMD}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{DEF\_CMD}{DEF\_CMD}}
+{\footnotesize\ttfamily \#define DEF\+\_\+\+CMD(\begin{DoxyParamCaption}\item[{}]{cmd\+\_\+name,  }\item[{}]{num\+\_\+args,  }\item[{}]{is\+\_\+leftside\+\_\+arg,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(cmd, \#cmd\_name) == 0) \{                                                                                    \(\backslash\)}
+\DoxyCodeLine{        pointer\_to\_command = \mbox{\hyperlink{assembler_8cpp_aad8df7b0e215b3f00c92970c93f63546}{ParseCommand}}((\textcolor{keywordtype}{int})(PROCESSOR\_COMMANDS::CMD\_\#\#cmd\_name), commands\_arr, \&ip, \&is\_was\_hlt);          \(\backslash\)}
+\DoxyCodeLine{        if (num\_args > 0) \{                                                                                                    \(\backslash\)}
+\DoxyCodeLine{            ParseArgument(commands\_arr, cmd, cur\_line, \&ip, pointer\_to\_command, args, is\_leftside\_arg, count\_labels, labels\_arr, step);  \(\backslash\)}
+\DoxyCodeLine{        \}                                                                                                                      \(\backslash\)}
+\DoxyCodeLine{    \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00173}{173}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_aaab0530c6d8af69924c3080d65c39c3f}\label{assembler_8cpp_aaab0530c6d8af69924c3080d65c39c3f}} 
+\index{assembler.cpp@{assembler.cpp}!FindPosLabel@{FindPosLabel}}
+\index{FindPosLabel@{FindPosLabel}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{FindPosLabel}{FindPosLabel}}
+{\footnotesize\ttfamily \#define Find\+Pos\+Label(\begin{DoxyParamCaption}\item[{}]{label,  }\item[{}]{count\+\_\+labels,  }\item[{}]{labels\+\_\+arr }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc}{Find\+Pos\+Label\+\_\+\+\_\+}}(label, count\+\_\+labels, labels\+\_\+arr, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_a9707dc7eece8be637417d223c340d671}\label{assembler_8cpp_a9707dc7eece8be637417d223c340d671}} 
+\index{assembler.cpp@{assembler.cpp}!InputTextCode@{InputTextCode}}
+\index{InputTextCode@{InputTextCode}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{InputTextCode}{InputTextCode}}
+{\footnotesize\ttfamily \#define Input\+Text\+Code(\begin{DoxyParamCaption}\item[{}]{programm\+\_\+code\+\_\+text,  }\item[{}]{file\+\_\+code\+\_\+text }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66}{Input\+Text\+Code\+\_\+\+\_\+}}(programm\+\_\+code\+\_\+text, file\+\_\+code\+\_\+text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_a42688d67fd73301b913c4383d02e20a6}\label{assembler_8cpp_a42688d67fd73301b913c4383d02e20a6}} 
+\index{assembler.cpp@{assembler.cpp}!ParseArgument@{ParseArgument}}
+\index{ParseArgument@{ParseArgument}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseArgument}{ParseArgument}}
+{\footnotesize\ttfamily \#define Parse\+Argument(\begin{DoxyParamCaption}\item[{}]{commands\+\_\+arr,  }\item[{}]{cmd,  }\item[{}]{cur\+\_\+line,  }\item[{}]{ip,  }\item[{}]{pointer\+\_\+to\+\_\+command,  }\item[{}]{args,  }\item[{}]{is\+\_\+leftside\+\_\+arg,  }\item[{}]{count\+\_\+labels,  }\item[{}]{labels\+\_\+arr,  }\item[{}]{step }\end{DoxyParamCaption})~        \mbox{\hyperlink{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a}{Parse\+Argument\+\_\+\+\_\+}}(commands\+\_\+arr, cmd, cur\+\_\+line, ip, pointer\+\_\+to\+\_\+command, args, is\+\_\+leftside\+\_\+arg, count\+\_\+labels, labels\+\_\+arr, step, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_aad8df7b0e215b3f00c92970c93f63546}\label{assembler_8cpp_aad8df7b0e215b3f00c92970c93f63546}} 
+\index{assembler.cpp@{assembler.cpp}!ParseCommand@{ParseCommand}}
+\index{ParseCommand@{ParseCommand}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseCommand}{ParseCommand}}
+{\footnotesize\ttfamily \#define Parse\+Command(\begin{DoxyParamCaption}\item[{}]{num\+\_\+cmd,  }\item[{}]{commands\+\_\+arr,  }\item[{}]{ip,  }\item[{}]{is\+\_\+was\+\_\+hlt }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950}{Parse\+Command\+\_\+\+\_\+}}(num\+\_\+cmd, commands\+\_\+arr, ip, is\+\_\+was\+\_\+hlt, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00033}{33}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_abaf297d2c4ec598550c086357ec3159b}\label{assembler_8cpp_abaf297d2c4ec598550c086357ec3159b}} 
+\index{assembler.cpp@{assembler.cpp}!SeparateTextByEndOfLine@{SeparateTextByEndOfLine}}
+\index{SeparateTextByEndOfLine@{SeparateTextByEndOfLine}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{SeparateTextByEndOfLine}{SeparateTextByEndOfLine}}
+{\footnotesize\ttfamily \#define Separate\+Text\+By\+End\+Of\+Line(\begin{DoxyParamCaption}\item[{}]{text }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf}{Separate\+Text\+By\+End\+Of\+Line\+\_\+\+\_\+}}(text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_aec08df4edf41614a6ac9f60397973821}\label{assembler_8cpp_aec08df4edf41614a6ac9f60397973821}} 
+\index{assembler.cpp@{assembler.cpp}!SetPosLabel@{SetPosLabel}}
+\index{SetPosLabel@{SetPosLabel}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPosLabel}{SetPosLabel}}
+{\footnotesize\ttfamily \#define Set\+Pos\+Label(\begin{DoxyParamCaption}\item[{}]{label,  }\item[{}]{cur\+\_\+line,  }\item[{}]{ip,  }\item[{}]{count\+\_\+labels,  }\item[{}]{labels\+\_\+arr }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444}{Set\+Pos\+Label\+\_\+\+\_\+}}(label, cur\+\_\+line, ip, count\+\_\+labels, labels\+\_\+arr,  \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_a78032e11d175ca49781c1fc186e9d8ae}\label{assembler_8cpp_a78032e11d175ca49781c1fc186e9d8ae}} 
+\index{assembler.cpp@{assembler.cpp}!TextSeparate@{TextSeparate}}
+\index{TextSeparate@{TextSeparate}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{TextSeparate}{TextSeparate}}
+{\footnotesize\ttfamily \#define Text\+Separate(\begin{DoxyParamCaption}\item[{}]{text }\end{DoxyParamCaption})~\mbox{\hyperlink{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13}{Text\+Separate\+\_\+\+\_\+}}(text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_accf60a92436cd7bae10ba7f6a424408b}\label{assembler_8cpp_accf60a92436cd7bae10ba7f6a424408b}} 
+\index{assembler.cpp@{assembler.cpp}!WriteAssemblerToFile@{WriteAssemblerToFile}}
+\index{WriteAssemblerToFile@{WriteAssemblerToFile}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{WriteAssemblerToFile}{WriteAssemblerToFile}}
+{\footnotesize\ttfamily \#define Write\+Assembler\+To\+File(\begin{DoxyParamCaption}\item[{}]{code\+\_\+arr,  }\item[{}]{size,  }\item[{}]{filename\+\_\+assembler\+\_\+text }\end{DoxyParamCaption})~        \mbox{\hyperlink{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560}{Write\+Assembler\+To\+File\+\_\+\+\_\+}}(code\+\_\+arr, size, filename\+\_\+assembler\+\_\+text,  \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}\{\mbox{\hyperlink{base__lib_8h_a5bb6fd229c35f9fe3a86c1e33d696c4c}{LOCATION\+\_\+\+\_\+}}\})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00049}{49}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{assembler_8cpp_ac04d62b67eaf1f2ba53c852058c9ef8d}\label{assembler_8cpp_ac04d62b67eaf1f2ba53c852058c9ef8d}} 
+\index{assembler.cpp@{assembler.cpp}!ChangeWordsToCodes\_\_@{ChangeWordsToCodes\_\_}}
+\index{ChangeWordsToCodes\_\_@{ChangeWordsToCodes\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ChangeWordsToCodes\_\_()}{ChangeWordsToCodes\_\_()}}
+{\footnotesize\ttfamily int Change\+Words\+To\+Codes\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{programm\+\_\+code\+\_\+text,  }\item[{const char $\ast$}]{filename\+\_\+assembler\+\_\+text,  }\item[{size\+\_\+t $\ast$}]{count\+\_\+labels,  }\item[{\mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$}]{labels\+\_\+arr,  }\item[{int}]{step,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{assembler_8cpp_ac04d62b67eaf1f2ba53c852058c9ef8d_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a5c42cac12807d3641ce2005da1e5cf55}\label{assembler_8cpp_a5c42cac12807d3641ce2005da1e5cf55}} 
+\index{assembler.cpp@{assembler.cpp}!CreateAssemblerFile\_\_@{CreateAssemblerFile\_\_}}
+\index{CreateAssemblerFile\_\_@{CreateAssemblerFile\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{CreateAssemblerFile\_\_()}{CreateAssemblerFile\_\_()}}
+{\footnotesize\ttfamily int Create\+Assembler\+File\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename\+\_\+code,  }\item[{const char $\ast$}]{filename\+\_\+asm,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00061}{61}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=295pt]{assembler_8cpp_a5c42cac12807d3641ce2005da1e5cf55_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc}\label{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc}} 
+\index{assembler.cpp@{assembler.cpp}!FindPosLabel\_\_@{FindPosLabel\_\_}}
+\index{FindPosLabel\_\_@{FindPosLabel\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{FindPosLabel\_\_()}{FindPosLabel\_\_()}}
+{\footnotesize\ttfamily int Find\+Pos\+Label\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{const char $\ast$}]{label,  }\item[{size\+\_\+t}]{count\+\_\+labels,  }\item[{\mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$}]{labels\+\_\+arr,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00412}{412}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=263pt]{assembler_8cpp_a9b3585a3e36e4c6206ca65cc9fa8fafc_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66}\label{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66}} 
+\index{assembler.cpp@{assembler.cpp}!InputTextCode\_\_@{InputTextCode\_\_}}
+\index{InputTextCode\_\_@{InputTextCode\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{InputTextCode\_\_()}{InputTextCode\_\_()}}
+{\footnotesize\ttfamily int Input\+Text\+Code\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{programm\+\_\+code\+\_\+text,  }\item[{FILE $\ast$}]{file\+\_\+code\+\_\+text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00096}{96}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=266pt]{assembler_8cpp_a7af78405f439c219a3329a3e75e1bd66_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_ad0a62cf4a9385b06fb35dac24f0a0032}\label{assembler_8cpp_ad0a62cf4a9385b06fb35dac24f0a0032}} 
+\index{assembler.cpp@{assembler.cpp}!IsCorrectRegister@{IsCorrectRegister}}
+\index{IsCorrectRegister@{IsCorrectRegister}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{IsCorrectRegister()}{IsCorrectRegister()}}
+{\footnotesize\ttfamily bool Is\+Correct\+Register (\begin{DoxyParamCaption}\item[{char}]{reg }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00405}{405}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+\mbox{\Hypertarget{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a}\label{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a}} 
+\index{assembler.cpp@{assembler.cpp}!ParseArgument\_\_@{ParseArgument\_\_}}
+\index{ParseArgument\_\_@{ParseArgument\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseArgument\_\_()}{ParseArgument\_\_()}}
+{\footnotesize\ttfamily int Parse\+Argument\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{commands\+\_\+arr,  }\item[{char $\ast$}]{cmd,  }\item[{int}]{num\+\_\+line,  }\item[{size\+\_\+t $\ast$}]{ip,  }\item[{char $\ast$}]{pointer\+\_\+to\+\_\+command,  }\item[{char $\ast$}]{args,  }\item[{bool}]{is\+\_\+leftside\+\_\+arg,  }\item[{size\+\_\+t $\ast$}]{count\+\_\+labels,  }\item[{\mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$}]{labels\+\_\+arr,  }\item[{int}]{step,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00264}{264}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{assembler_8cpp_a5a898286c1f0771b935af8917ef5602a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950}\label{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950}} 
+\index{assembler.cpp@{assembler.cpp}!ParseCommand\_\_@{ParseCommand\_\_}}
+\index{ParseCommand\_\_@{ParseCommand\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{ParseCommand\_\_()}{ParseCommand\_\_()}}
+{\footnotesize\ttfamily char $\ast$ Parse\+Command\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{int}]{num\+\_\+cmd,  }\item[{char $\ast$}]{commands\+\_\+arr,  }\item[{size\+\_\+t $\ast$}]{ip,  }\item[{bool $\ast$}]{is\+\_\+was\+\_\+hlt,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00238}{238}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{assembler_8cpp_a5dc1c142d3203db8c4748c50bbdd5950_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf}\label{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf}} 
+\index{assembler.cpp@{assembler.cpp}!SeparateTextByEndOfLine\_\_@{SeparateTextByEndOfLine\_\_}}
+\index{SeparateTextByEndOfLine\_\_@{SeparateTextByEndOfLine\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{SeparateTextByEndOfLine\_\_()}{SeparateTextByEndOfLine\_\_()}}
+{\footnotesize\ttfamily int Separate\+Text\+By\+End\+Of\+Line\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00133}{133}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{assembler_8cpp_a08576d85cf9f112d043de260bd6c1fdf_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444}\label{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444}} 
+\index{assembler.cpp@{assembler.cpp}!SetPosLabel\_\_@{SetPosLabel\_\_}}
+\index{SetPosLabel\_\_@{SetPosLabel\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{SetPosLabel\_\_()}{SetPosLabel\_\_()}}
+{\footnotesize\ttfamily int Set\+Pos\+Label\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{label,  }\item[{int}]{cur\+\_\+line,  }\item[{size\+\_\+t}]{ip,  }\item[{size\+\_\+t $\ast$}]{count\+\_\+labels,  }\item[{\mbox{\hyperlink{struct_l_a_b_e_l__}{LABEL\+\_\+}} $\ast$}]{labels\+\_\+arr,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00430}{430}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{assembler_8cpp_a5146fbfab3a40391356f1fcadefb1444_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13}\label{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13}} 
+\index{assembler.cpp@{assembler.cpp}!TextSeparate\_\_@{TextSeparate\_\_}}
+\index{TextSeparate\_\_@{TextSeparate\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{TextSeparate\_\_()}{TextSeparate\_\_()}}
+{\footnotesize\ttfamily int Text\+Separate\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_text_struct}{Text\+Struct}} $\ast$}]{text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00114}{114}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{assembler_8cpp_af8b9e2323349b7578b2c1a1e820cbc13_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560}\label{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560}} 
+\index{assembler.cpp@{assembler.cpp}!WriteAssemblerToFile\_\_@{WriteAssemblerToFile\_\_}}
+\index{WriteAssemblerToFile\_\_@{WriteAssemblerToFile\_\_}!assembler.cpp@{assembler.cpp}}
+\doxysubsubsection{\texorpdfstring{WriteAssemblerToFile\_\_()}{WriteAssemblerToFile\_\_()}}
+{\footnotesize\ttfamily int Write\+Assembler\+To\+File\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{char $\ast$}]{code\+\_\+arr,  }\item[{size\+\_\+t}]{size,  }\item[{const char $\ast$}]{filename\+\_\+assembler\+\_\+text,  }\item[{\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\+\_\+\+STRUCT\+\_\+\+CALL\+\_\+\+\_\+}}}]{call\+\_\+place }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{assembler_8cpp_source_l00477}{477}} of file \mbox{\hyperlink{assembler_8cpp_source}{assembler.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=300pt]{assembler_8cpp_a2c9e90c69ec389e356e7c4b51ca07560_cgraph}
+\end{center}
+\end{figure}

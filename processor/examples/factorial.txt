@@ -1,0 +1,33 @@
+STROUT AskNumber
+IN ax
+PUSH ax+1
+POP ax
+PUSH 1
+PUSH 1
+POP bx
+POP cx
+CALL Factorial
+PUSH bx
+STROUT Answer
+OUT
+HLT
+
+Factorial:
+    PUSH bx
+    PUSH cx
+    MUL
+    POP bx
+    PUSH cx+1
+    POP cx
+    PUSH ax
+    PUSH cx
+    JBE Iteration
+        CALL Factorial
+    Iteration:
+        RET
+
+AskNumber:
+    DB $Input number: $
+
+Answer:
+    DB $Factorial is: $

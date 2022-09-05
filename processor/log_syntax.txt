@@ -1,0 +1,24 @@
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: POP. Line: 5
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: POP. Line: 5
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 27
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 27
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 27
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 27
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 28
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input$ number: . Line: 28
+Assembler detect syntaxis error: Failed: Incorrect end of str. Command: Input$ number: . Line: 28
+Assembler detect syntaxis error: Failed: Incorrect end of str. Command: Input$ number: . Line: 28
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input number: . Line: 28
+Assembler detect syntaxis error: Failed: Cannot find end of str. Command: Input number: . Line: 28
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: PUSH. Line: 1
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: PUSH. Line: 1
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: PUSH. Line: 1
+Assembler detect syntaxis error: Failed: Incorrect name of register(correct ax, bx, cx, dx). Command: PUSH. Line: 1
+Assembler detect syntaxis error: Failed: Cant recognize symbol. Command: PUS. Line: 1
+Assembler detect syntaxis error: Failed: Cant recognize symbol. Command: PUS. Line: 1
+Assembler detect syntaxis error: Failed: Cant recognize symbol. Command: sdf. Line: 1
+Assembler detect syntaxis error: Failed: Cant recognize symbol. Command: sdf. Line: 1
+Assembler detect syntaxis error: Failed: Cannot find label. Command: g. Line: 0
+Assembler detect syntaxis error: Failed: Cannot find label. Command: df. Line: 0
+Assembler detect syntaxis error: Failed: Cannot find argument to command. Command: PUSH. Line: 1
+Assembler detect syntaxis error: Failed: Cannot find argument to command. Command: PUSH. Line: 1

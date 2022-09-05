@@ -1,0 +1,40 @@
+\hypertarget{logger_8cpp_source}{}\doxysection{logger.\+cpp}
+\label{logger_8cpp_source}\index{processor/logger/logger.cpp@{processor/logger/logger.cpp}}
+\mbox{\hyperlink{logger_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include "{}../base\_lib/base\_lib.h"{}}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <time.h>} }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00005}00005 \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{char}* \mbox{\hyperlink{text__lib_8cpp_ad262b6f225184b2cf907834223edf4d0}{LOG\_FILE\_NAME}} = \textcolor{stringliteral}{"{}log.txt"{}};}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00007}\mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{00007}} \textcolor{keywordtype}{int} \mbox{\hyperlink{logger_8cpp_ad316185ee8464ad69ee7eb3c20fdf53b}{CreateLog}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* name\_module, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* err\_text, \mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l____}{LOCATION\_STRUCT\_CALL\_\_}} call\_place, }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00008}00008                      \textcolor{keyword}{const} \textcolor{keywordtype}{char}* var\_name, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* filename, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* funcname, \textcolor{keywordtype}{int} line) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00010}00010     time\_t rawtime;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00011}00011     \textcolor{keyword}{struct }tm* timeinfo;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00013}00013     time(\&rawtime);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00014}00014     timeinfo = localtime(\&rawtime);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00016}00016     fprintf(stderr, \textcolor{stringliteral}{"{}\%s  :  \%s has error: \%s. WHERE: FILENAME: \%s;FUNCTION: \%s;LINE: \%d. Error was detecte in: FILENAME: \%s;FUNCTION: \%s;LINE: \%d;VAR: \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00017}00017         asctime(timeinfo), name\_module, err\_text, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aad373a9f0ab4767f888d47fd510df034}{filename\_\_}}, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____af8ccdd2e2835ba63c14832615677b14c}{func\_name\_\_}}, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aaf0631980f73479abfad32a92bb2e9dc}{line\_\_}},}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00018}00018         filename, funcname, line, var\_name);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00020}00020     FILE* file\_log = fopen(\mbox{\hyperlink{text__lib_8cpp_ad262b6f225184b2cf907834223edf4d0}{LOG\_FILE\_NAME}}, \textcolor{stringliteral}{"{}w+"{}});}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00021}00021     \textcolor{keywordflow}{if} (\_IsBadReadPtr(file\_log)) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00022}00022         printf(\textcolor{stringliteral}{"{}\%s  :  \%s has error: Cant open log file\(\backslash\)n"{}}, asctime(timeinfo), name\_module);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00023}00023         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00024}00024     \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00026}00026     setvbuf(file\_log, (\textcolor{keywordtype}{char}*)NULL, \_IONBF, 0);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00027}00027     fprintf(file\_log, \textcolor{stringliteral}{"{}\%s  :  \%s has error: \%s. WHERE: FILENAME: \%s;FUNCTION: \%s;LINE: \%d. Error was detecte in: FILENAME: \%s;FUNCTION: \%s;LINE: \%d;VAR: \%s\(\backslash\)n"{}},}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00028}00028         asctime(timeinfo), name\_module, err\_text, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aad373a9f0ab4767f888d47fd510df034}{filename\_\_}}, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____af8ccdd2e2835ba63c14832615677b14c}{func\_name\_\_}}, call\_place.\mbox{\hyperlink{struct_l_o_c_a_t_i_o_n___s_t_r_u_c_t___c_a_l_l_____aaf0631980f73479abfad32a92bb2e9dc}{line\_\_}},}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00029}00029         filename, funcname, line, var\_name);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00031}00031     fclose(file\_log);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00033}00033     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00034}00034 \}}
+
+\end{DoxyCode}

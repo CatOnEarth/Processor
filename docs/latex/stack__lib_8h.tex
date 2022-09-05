@@ -1,0 +1,771 @@
+\hypertarget{stack__lib_8h}{}\doxysection{processor/cpu/stack\+\_\+lib/stack\+\_\+lib.h File Reference}
+\label{stack__lib_8h}\index{processor/cpu/stack\_lib/stack\_lib.h@{processor/cpu/stack\_lib/stack\_lib.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$typeinfo$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+Include dependency graph for stack\+\_\+lib.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a84c88db6d9b7ef147f8040c2cc0eda1f}{DEBUG\+\_\+\+MODE\+\_\+\+OFF}}~0
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a384c422c2dd81cac70fb7391e2dbd2d9}{DEBUG\+\_\+\+MODE\+\_\+\+ON}}~1
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}{DEBUG\+\_\+\+MODE}}~\mbox{\hyperlink{stack__lib_8h_a84c88db6d9b7ef147f8040c2cc0eda1f}{DEBUG\+\_\+\+MODE\+\_\+\+OFF}}
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a38d9ed4d3f2a3db7c4c6488906d3004e}{STACK\+\_\+\+WITHOUT\+\_\+\+PROTECTION}}~0
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a6219c784093ec8e9b2a4d34491847c92}{STACK\+\_\+\+STAND\+\_\+\+PROTECTION}}~1
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_aed06b425f8886ef576e5aa514b5b7441}{STACK\+\_\+\+CANARY\+\_\+\+PROTECTION}}~2
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a6aad864f90f1bab7ea695caca9a72c87}{STACK\+\_\+\+HASH\+\_\+\+PROTECTION}}~3
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_abbd9ffd480a5799461025dedefb84c54}{STACK\+\_\+\+LEVEL\+\_\+\+PROTECTION}}~\mbox{\hyperlink{stack__lib_8h_a38d9ed4d3f2a3db7c4c6488906d3004e}{STACK\+\_\+\+WITHOUT\+\_\+\+PROTECTION}}
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a2af6bf843475565a9681f9449a3d5cc2}{DEFAULT\+\_\+\+CAPACITY}}~16
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a302647c714484e9c4ae6d37204d1914f}{DEFAULT\+\_\+\+EMPTY\+\_\+\+ELEM\+\_\+\+OF\+\_\+\+STACK}}~-\/666
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a37f96ceecae1d01d587f3a5b37975d90}{STACK\+\_\+\+RESIZE\+\_\+\+MORE\+\_\+\+CONST}}~16
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(...)
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a30282b1b53279f13db9caec5004896bd}{Stack\+Type}}
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_abf538d795c45b7fa978ebf7b51ab68ff}{ASSERT\+\_\+\+OK}}(obj)
+\item 
+\#define \mbox{\hyperlink{stack__lib_8h_a6cd251602d1fc1df61efc07e1493c567}{Stack\+Constructor}}(stack)~\mbox{\hyperlink{stack__lib_8h_adbb82e6e8bd649843ce849016e336737}{Stack\+Constructor\+\_\+}}(\&stack);
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef long long \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}}
+\item 
+typedef unsigned long long \mbox{\hyperlink{stack__lib_8h_ac2169369c9cb04e87f4a36ad01fa1081}{Stack\+Canary\+Elem\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \{ \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a51e75405b85142dd14963f70209d54d9}{\+\_\+\+SUCCESSFUL}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0db6107484da4192cc09d9eb0cb71e4b}{\+\_\+\+ERROR\+\_\+\+NULL\+\_\+\+OBJ}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0aa7217adee1f2a9690728e09b653b7b76}{\+\_\+\+ERROR\+\_\+\+NULL\+\_\+\+POINTER\+\_\+\+DATA}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0afdfca6ccadda1d1e92165a7c650a549c}{\+\_\+\+ERROR\+\_\+\+INIZIALIZE\+\_\+\+DATA}}
+, \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae1ef83bb274096efa8dbe451f9ae193f}{\+\_\+\+ERROR\+\_\+\+SEGMENTATION\+\_\+\+FAULT}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a4a17da03bf63a61b91fdb1a6f1eeb506}{\+\_\+\+ERROR\+\_\+\+SIZE\+\_\+\+MINUS}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abce0e7031e207343f29b4fe1397a3a5d}{\+\_\+\+ERROR\+\_\+\+CAPACITY\+\_\+\+CANT\+\_\+\+BE\+\_\+\+LOW\+\_\+\+DEFAULT}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0adb9798ca7bb0929eb47a0e940a4e3540}{\+\_\+\+ERROR\+\_\+\+SIZE\+\_\+\+BIGGER\+\_\+\+CAPACITY}}
+, \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a54984c67000c600c0a7e1bd583a0fa66}{\+\_\+\+ERROR\+\_\+\+REPEAT\+\_\+\+CONSTRACT}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a2f91190398e362333acf48ba1664a768}{\+\_\+\+ERROR\+\_\+\+REPEAT\+\_\+\+DESTRUCT}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae4f3db88929bb6e43f584115863ccf93}{\+\_\+\+ERROR\+\_\+\+POISON\+\_\+\+ELEM\+\_\+\+STACK\+\_\+\+DATA}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a7d9ec6e1b5cc0be1dcdf68c4e0b372ce}{\+\_\+\+ERROR\+\_\+\+STACK\+\_\+\+NOT\+\_\+\+CONSTRACT}}
+, \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0af94fc70c2171b1a6952dc6d510dd9600}{\+\_\+\+ERROR\+\_\+\+STACK\+\_\+\+DESTRUCT}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abf48af25eb434a8f3119824aa35a2c49}{\+\_\+\+ERROR\+\_\+\+POP\+\_\+\+ON\+\_\+\+EMPTY\+\_\+\+STACK}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a27f627bb83860524ac5b0c5bb8006fda}{\+\_\+\+ERROR\+\_\+\+TOP\+\_\+\+ON\+\_\+\+EMPTY\+\_\+\+STACK}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a34d24198e300397918a4fe8fe9b0e6d4}{\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+STRUCT\+\_\+\+START\+\_\+\+DEAD}}
+, \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a313c524aab001bbc65de0aaf61592e3f}{\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+STRUCT\+\_\+\+END\+\_\+\+DEAD}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a6cb87c358e947321ed731bcb3f0b209c}{\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+DATA\+\_\+\+START\+\_\+\+DEAD}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a42ed20a8e35a889c73a7e85f19f5d243}{\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+DATA\+\_\+\+END\+\_\+\+DEAD}}
+, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abbd94455afd5a36c4a774a1f4a6ac5fb}{\+\_\+\+ERROR\+\_\+\+HASH\+\_\+\+STRUCT\+\_\+\+CHANGED}}
+, \newline
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0e1805012d4a594e504617c52bcb9b41}{\+\_\+\+ERROR\+\_\+\+HASH\+\_\+\+DATA\+\_\+\+CHANGED}}
+ \}
+\item 
+enum class \mbox{\hyperlink{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbd}{Poison}} \{ \mbox{\hyperlink{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbda036c3f78b99fcfd53970be072cf3c5bb}{p\+Nullptr}}
+, \mbox{\hyperlink{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbdae33c9dc075e2e0944f9ba5b7ad5c5771}{p\+Null\+Data}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_adbb82e6e8bd649843ce849016e336737}{Stack\+Constructor\+\_\+}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+bool \mbox{\hyperlink{stack__lib_8h_a396b1cf1481e42e4016cea85946e4c33}{Check\+Is\+Was\+Already\+Constract}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_a2dfa3bf40e4c0a801fb726753fcd262c}{Stack\+Destructor}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}{Stack\+Push}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} val)
+\item 
+\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} \mbox{\hyperlink{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}{Stack\+Pop}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} \mbox{\hyperlink{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2}{Stack\+Top}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_a44b2c6049b3e7a303080602658b87419}{Stack\+Data\+Allocation}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+void \mbox{\hyperlink{stack__lib_8h_a4a20225eac6637302423319ad4e5ce79}{Data\+Poison\+Elems\+Inizialize}} (\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$start, \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$end)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_a5380e68d1c151f4c92f3261455ecfee1}{Stack\+Type\+OK}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_a08d5e38164aafb93e56fbb2cd8f06848}{Stack\+Type\+OKStandart\+Protection}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_af180d647b5760d62e11489848ea8c4f8}{Stack\+Type\+OKCanary\+Protection}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} \mbox{\hyperlink{stack__lib_8h_adacf9571e4048a5d32c4354ca5738f81}{Stack\+Type\+OKHash\+Protection}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack)
+\item 
+void \mbox{\hyperlink{stack__lib_8h_aa40a56ca0e905cf3b8696cc9f9bd045c}{Stack\+Abort}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\item 
+const char $\ast$ \mbox{\hyperlink{stack__lib_8h_ad27fb496f979be96d1376ae375c9f097}{Stack\+Get\+Text\+Error}} (\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err)
+\item 
+void \mbox{\hyperlink{stack__lib_8h_a29a97f9c2b81910070aa2136579802c8}{Stack\+Dump}} (\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack, \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ \mbox{\hyperlink{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}{DEBUG\+\_\+\+CODE\+\_\+\+ADD}}(, LOCATION location\+\_\+call))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned long long \mbox{\hyperlink{stack__lib_8h_a21bd665976609ecd44d86c82a87160a3}{CANARY\+\_\+\+DEFAULT\+\_\+\+STRUCT\+\_\+\+START}} = 0x5\+C4\+F2\+EB5
+\item 
+const unsigned long long \mbox{\hyperlink{stack__lib_8h_a838e4d1938b0a649739f2e6f3a265380}{CANARY\+\_\+\+DEFAULT\+\_\+\+STRUCT\+\_\+\+END}} = 0x7350\+C11E
+\item 
+const unsigned long long \mbox{\hyperlink{stack__lib_8h_afd50af68c4f5881af2f6f4d2ce5bcc4e}{CANARY\+\_\+\+DEFAULT\+\_\+\+DATA\+\_\+\+START}} = 0x813794\+E5
+\item 
+const unsigned long long \mbox{\hyperlink{stack__lib_8h_ad729eaf58a5161c554f9fbc33f07aeed}{CANARY\+\_\+\+DEFAULT\+\_\+\+DATA\+\_\+\+END}} = 0x7\+A0254\+E4
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{stack__lib_8h_abf538d795c45b7fa978ebf7b51ab68ff}\label{stack__lib_8h_abf538d795c45b7fa978ebf7b51ab68ff}} 
+\index{stack\_lib.h@{stack\_lib.h}!ASSERT\_OK@{ASSERT\_OK}}
+\index{ASSERT\_OK@{ASSERT\_OK}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{ASSERT\_OK}{ASSERT\_OK}}
+{\footnotesize\ttfamily \#define ASSERT\+\_\+\+OK(\begin{DoxyParamCaption}\item[{}]{obj }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (\mbox{\hyperlink{stack__lib_8h_a30282b1b53279f13db9caec5004896bd}{StackType}}\#\#OK(obj) != \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a51e75405b85142dd14963f70209d54d9}{TypeError::\_SUCCESSFUL}}) \{     \(\backslash\)}
+\DoxyCodeLine{            StackAbort(obj, \mbox{\hyperlink{stack__lib_8h_a30282b1b53279f13db9caec5004896bd}{StackType}}\#\#OK(obj));                \(\backslash\)}
+\DoxyCodeLine{        \}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00129}{129}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}\label{stack__lib_8h_ad245bf6e63549bf02ba209a624134aad}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEBUG\_CODE\_ADD@{DEBUG\_CODE\_ADD}}
+\index{DEBUG\_CODE\_ADD@{DEBUG\_CODE\_ADD}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_CODE\_ADD}{DEBUG\_CODE\_ADD}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+CODE\+\_\+\+ADD(\begin{DoxyParamCaption}\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00115}{115}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}\label{stack__lib_8h_ac80a3592e72fd96b772ee47a7d8e0d0a}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEBUG\_MODE@{DEBUG\_MODE}}
+\index{DEBUG\_MODE@{DEBUG\_MODE}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MODE}{DEBUG\_MODE}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MODE~\mbox{\hyperlink{stack__lib_8h_a84c88db6d9b7ef147f8040c2cc0eda1f}{DEBUG\+\_\+\+MODE\+\_\+\+OFF}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00017}{17}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a84c88db6d9b7ef147f8040c2cc0eda1f}\label{stack__lib_8h_a84c88db6d9b7ef147f8040c2cc0eda1f}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEBUG\_MODE\_OFF@{DEBUG\_MODE\_OFF}}
+\index{DEBUG\_MODE\_OFF@{DEBUG\_MODE\_OFF}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MODE\_OFF}{DEBUG\_MODE\_OFF}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MODE\+\_\+\+OFF~0}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00014}{14}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a384c422c2dd81cac70fb7391e2dbd2d9}\label{stack__lib_8h_a384c422c2dd81cac70fb7391e2dbd2d9}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEBUG\_MODE\_ON@{DEBUG\_MODE\_ON}}
+\index{DEBUG\_MODE\_ON@{DEBUG\_MODE\_ON}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEBUG\_MODE\_ON}{DEBUG\_MODE\_ON}}
+{\footnotesize\ttfamily \#define DEBUG\+\_\+\+MODE\+\_\+\+ON~1}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00015}{15}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a2af6bf843475565a9681f9449a3d5cc2}\label{stack__lib_8h_a2af6bf843475565a9681f9449a3d5cc2}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}}
+\index{DEFAULT\_CAPACITY@{DEFAULT\_CAPACITY}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_CAPACITY}{DEFAULT\_CAPACITY}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+CAPACITY~16}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00076}{76}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a302647c714484e9c4ae6d37204d1914f}\label{stack__lib_8h_a302647c714484e9c4ae6d37204d1914f}} 
+\index{stack\_lib.h@{stack\_lib.h}!DEFAULT\_EMPTY\_ELEM\_OF\_STACK@{DEFAULT\_EMPTY\_ELEM\_OF\_STACK}}
+\index{DEFAULT\_EMPTY\_ELEM\_OF\_STACK@{DEFAULT\_EMPTY\_ELEM\_OF\_STACK}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_EMPTY\_ELEM\_OF\_STACK}{DEFAULT\_EMPTY\_ELEM\_OF\_STACK}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+EMPTY\+\_\+\+ELEM\+\_\+\+OF\+\_\+\+STACK~-\/666}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00077}{77}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_aed06b425f8886ef576e5aa514b5b7441}\label{stack__lib_8h_aed06b425f8886ef576e5aa514b5b7441}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_CANARY\_PROTECTION@{STACK\_CANARY\_PROTECTION}}
+\index{STACK\_CANARY\_PROTECTION@{STACK\_CANARY\_PROTECTION}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_CANARY\_PROTECTION}{STACK\_CANARY\_PROTECTION}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+CANARY\+\_\+\+PROTECTION~2}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00025}{25}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a6aad864f90f1bab7ea695caca9a72c87}\label{stack__lib_8h_a6aad864f90f1bab7ea695caca9a72c87}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_HASH\_PROTECTION@{STACK\_HASH\_PROTECTION}}
+\index{STACK\_HASH\_PROTECTION@{STACK\_HASH\_PROTECTION}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_HASH\_PROTECTION}{STACK\_HASH\_PROTECTION}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+HASH\+\_\+\+PROTECTION~3}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00026}{26}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_abbd9ffd480a5799461025dedefb84c54}\label{stack__lib_8h_abbd9ffd480a5799461025dedefb84c54}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_LEVEL\_PROTECTION@{STACK\_LEVEL\_PROTECTION}}
+\index{STACK\_LEVEL\_PROTECTION@{STACK\_LEVEL\_PROTECTION}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_LEVEL\_PROTECTION}{STACK\_LEVEL\_PROTECTION}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+LEVEL\+\_\+\+PROTECTION~\mbox{\hyperlink{stack__lib_8h_a38d9ed4d3f2a3db7c4c6488906d3004e}{STACK\+\_\+\+WITHOUT\+\_\+\+PROTECTION}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00028}{28}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a37f96ceecae1d01d587f3a5b37975d90}\label{stack__lib_8h_a37f96ceecae1d01d587f3a5b37975d90}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_RESIZE\_MORE\_CONST@{STACK\_RESIZE\_MORE\_CONST}}
+\index{STACK\_RESIZE\_MORE\_CONST@{STACK\_RESIZE\_MORE\_CONST}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_RESIZE\_MORE\_CONST}{STACK\_RESIZE\_MORE\_CONST}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+RESIZE\+\_\+\+MORE\+\_\+\+CONST~16}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00079}{79}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a6219c784093ec8e9b2a4d34491847c92}\label{stack__lib_8h_a6219c784093ec8e9b2a4d34491847c92}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_STAND\_PROTECTION@{STACK\_STAND\_PROTECTION}}
+\index{STACK\_STAND\_PROTECTION@{STACK\_STAND\_PROTECTION}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_STAND\_PROTECTION}{STACK\_STAND\_PROTECTION}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+STAND\+\_\+\+PROTECTION~1}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00024}{24}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a38d9ed4d3f2a3db7c4c6488906d3004e}\label{stack__lib_8h_a38d9ed4d3f2a3db7c4c6488906d3004e}} 
+\index{stack\_lib.h@{stack\_lib.h}!STACK\_WITHOUT\_PROTECTION@{STACK\_WITHOUT\_PROTECTION}}
+\index{STACK\_WITHOUT\_PROTECTION@{STACK\_WITHOUT\_PROTECTION}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{STACK\_WITHOUT\_PROTECTION}{STACK\_WITHOUT\_PROTECTION}}
+{\footnotesize\ttfamily \#define STACK\+\_\+\+WITHOUT\+\_\+\+PROTECTION~0}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00023}{23}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a6cd251602d1fc1df61efc07e1493c567}\label{stack__lib_8h_a6cd251602d1fc1df61efc07e1493c567}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackConstructor@{StackConstructor}}
+\index{StackConstructor@{StackConstructor}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackConstructor}{StackConstructor}}
+{\footnotesize\ttfamily \#define Stack\+Constructor(\begin{DoxyParamCaption}\item[{}]{stack }\end{DoxyParamCaption})~\mbox{\hyperlink{stack__lib_8h_adbb82e6e8bd649843ce849016e336737}{Stack\+Constructor\+\_\+}}(\&stack);}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00141}{141}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a30282b1b53279f13db9caec5004896bd}\label{stack__lib_8h_a30282b1b53279f13db9caec5004896bd}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackType@{StackType}}
+\index{StackType@{StackType}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackType}{StackType}}
+{\footnotesize\ttfamily \#define Stack\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00118}{118}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{stack__lib_8h_ac2169369c9cb04e87f4a36ad01fa1081}\label{stack__lib_8h_ac2169369c9cb04e87f4a36ad01fa1081}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackCanaryElem\_t@{StackCanaryElem\_t}}
+\index{StackCanaryElem\_t@{StackCanaryElem\_t}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackCanaryElem\_t}{StackCanaryElem\_t}}
+{\footnotesize\ttfamily typedef unsigned long long \mbox{\hyperlink{stack__lib_8h_ac2169369c9cb04e87f4a36ad01fa1081}{Stack\+Canary\+Elem\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00074}{74}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}\label{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackElem\_t@{StackElem\_t}}
+\index{StackElem\_t@{StackElem\_t}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackElem\_t}{StackElem\_t}}
+{\footnotesize\ttfamily typedef long long \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}}}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00073}{73}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbd}\label{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbd}} 
+\index{stack\_lib.h@{stack\_lib.h}!Poison@{Poison}}
+\index{Poison@{Poison}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{Poison}{Poison}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbd}{Poison}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pNullptr@{pNullptr}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!pNullptr@{pNullptr}}}\mbox{\Hypertarget{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbda036c3f78b99fcfd53970be072cf3c5bb}\label{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbda036c3f78b99fcfd53970be072cf3c5bb}} 
+p\+Nullptr&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{pNullData@{pNullData}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!pNullData@{pNullData}}}\mbox{\Hypertarget{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbdae33c9dc075e2e0944f9ba5b7ad5c5771}\label{stack__lib_8h_afe284437bde21a3a43a8856abfc12fbdae33c9dc075e2e0944f9ba5b7ad5c5771}} 
+p\+Null\+Data&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00058}{58}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}} 
+\index{stack\_lib.h@{stack\_lib.h}!TypeError@{TypeError}}
+\index{TypeError@{TypeError}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{TypeError}{TypeError}}
+{\footnotesize\ttfamily enum class \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_SUCCESSFUL@{\_SUCCESSFUL}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_SUCCESSFUL@{\_SUCCESSFUL}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a51e75405b85142dd14963f70209d54d9}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a51e75405b85142dd14963f70209d54d9}} 
+\+\_\+\+SUCCESSFUL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_NULL\_OBJ@{\_ERROR\_NULL\_OBJ}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_NULL\_OBJ@{\_ERROR\_NULL\_OBJ}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0db6107484da4192cc09d9eb0cb71e4b}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0db6107484da4192cc09d9eb0cb71e4b}} 
+\+\_\+\+ERROR\+\_\+\+NULL\+\_\+\+OBJ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_NULL\_POINTER\_DATA@{\_ERROR\_NULL\_POINTER\_DATA}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_NULL\_POINTER\_DATA@{\_ERROR\_NULL\_POINTER\_DATA}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0aa7217adee1f2a9690728e09b653b7b76}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0aa7217adee1f2a9690728e09b653b7b76}} 
+\+\_\+\+ERROR\+\_\+\+NULL\+\_\+\+POINTER\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_INIZIALIZE\_DATA@{\_ERROR\_INIZIALIZE\_DATA}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_INIZIALIZE\_DATA@{\_ERROR\_INIZIALIZE\_DATA}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0afdfca6ccadda1d1e92165a7c650a549c}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0afdfca6ccadda1d1e92165a7c650a549c}} 
+\+\_\+\+ERROR\+\_\+\+INIZIALIZE\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_SEGMENTATION\_FAULT@{\_ERROR\_SEGMENTATION\_FAULT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_SEGMENTATION\_FAULT@{\_ERROR\_SEGMENTATION\_FAULT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae1ef83bb274096efa8dbe451f9ae193f}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae1ef83bb274096efa8dbe451f9ae193f}} 
+\+\_\+\+ERROR\+\_\+\+SEGMENTATION\+\_\+\+FAULT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_SIZE\_MINUS@{\_ERROR\_SIZE\_MINUS}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_SIZE\_MINUS@{\_ERROR\_SIZE\_MINUS}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a4a17da03bf63a61b91fdb1a6f1eeb506}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a4a17da03bf63a61b91fdb1a6f1eeb506}} 
+\+\_\+\+ERROR\+\_\+\+SIZE\+\_\+\+MINUS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_CAPACITY\_CANT\_BE\_LOW\_DEFAULT@{\_ERROR\_CAPACITY\_CANT\_BE\_LOW\_DEFAULT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_CAPACITY\_CANT\_BE\_LOW\_DEFAULT@{\_ERROR\_CAPACITY\_CANT\_BE\_LOW\_DEFAULT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abce0e7031e207343f29b4fe1397a3a5d}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abce0e7031e207343f29b4fe1397a3a5d}} 
+\+\_\+\+ERROR\+\_\+\+CAPACITY\+\_\+\+CANT\+\_\+\+BE\+\_\+\+LOW\+\_\+\+DEFAULT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_SIZE\_BIGGER\_CAPACITY@{\_ERROR\_SIZE\_BIGGER\_CAPACITY}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_SIZE\_BIGGER\_CAPACITY@{\_ERROR\_SIZE\_BIGGER\_CAPACITY}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0adb9798ca7bb0929eb47a0e940a4e3540}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0adb9798ca7bb0929eb47a0e940a4e3540}} 
+\+\_\+\+ERROR\+\_\+\+SIZE\+\_\+\+BIGGER\+\_\+\+CAPACITY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_REPEAT\_CONSTRACT@{\_ERROR\_REPEAT\_CONSTRACT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_REPEAT\_CONSTRACT@{\_ERROR\_REPEAT\_CONSTRACT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a54984c67000c600c0a7e1bd583a0fa66}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a54984c67000c600c0a7e1bd583a0fa66}} 
+\+\_\+\+ERROR\+\_\+\+REPEAT\+\_\+\+CONSTRACT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_REPEAT\_DESTRUCT@{\_ERROR\_REPEAT\_DESTRUCT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_REPEAT\_DESTRUCT@{\_ERROR\_REPEAT\_DESTRUCT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a2f91190398e362333acf48ba1664a768}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a2f91190398e362333acf48ba1664a768}} 
+\+\_\+\+ERROR\+\_\+\+REPEAT\+\_\+\+DESTRUCT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_POISON\_ELEM\_STACK\_DATA@{\_ERROR\_POISON\_ELEM\_STACK\_DATA}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_POISON\_ELEM\_STACK\_DATA@{\_ERROR\_POISON\_ELEM\_STACK\_DATA}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae4f3db88929bb6e43f584115863ccf93}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae4f3db88929bb6e43f584115863ccf93}} 
+\+\_\+\+ERROR\+\_\+\+POISON\+\_\+\+ELEM\+\_\+\+STACK\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_STACK\_NOT\_CONSTRACT@{\_ERROR\_STACK\_NOT\_CONSTRACT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_STACK\_NOT\_CONSTRACT@{\_ERROR\_STACK\_NOT\_CONSTRACT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a7d9ec6e1b5cc0be1dcdf68c4e0b372ce}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a7d9ec6e1b5cc0be1dcdf68c4e0b372ce}} 
+\+\_\+\+ERROR\+\_\+\+STACK\+\_\+\+NOT\+\_\+\+CONSTRACT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_STACK\_DESTRUCT@{\_ERROR\_STACK\_DESTRUCT}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_STACK\_DESTRUCT@{\_ERROR\_STACK\_DESTRUCT}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0af94fc70c2171b1a6952dc6d510dd9600}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0af94fc70c2171b1a6952dc6d510dd9600}} 
+\+\_\+\+ERROR\+\_\+\+STACK\+\_\+\+DESTRUCT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_POP\_ON\_EMPTY\_STACK@{\_ERROR\_POP\_ON\_EMPTY\_STACK}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_POP\_ON\_EMPTY\_STACK@{\_ERROR\_POP\_ON\_EMPTY\_STACK}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abf48af25eb434a8f3119824aa35a2c49}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abf48af25eb434a8f3119824aa35a2c49}} 
+\+\_\+\+ERROR\+\_\+\+POP\+\_\+\+ON\+\_\+\+EMPTY\+\_\+\+STACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_TOP\_ON\_EMPTY\_STACK@{\_ERROR\_TOP\_ON\_EMPTY\_STACK}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_TOP\_ON\_EMPTY\_STACK@{\_ERROR\_TOP\_ON\_EMPTY\_STACK}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a27f627bb83860524ac5b0c5bb8006fda}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a27f627bb83860524ac5b0c5bb8006fda}} 
+\+\_\+\+ERROR\+\_\+\+TOP\+\_\+\+ON\+\_\+\+EMPTY\+\_\+\+STACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_CANARY\_STACK\_STRUCT\_START\_DEAD@{\_ERROR\_CANARY\_STACK\_STRUCT\_START\_DEAD}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_CANARY\_STACK\_STRUCT\_START\_DEAD@{\_ERROR\_CANARY\_STACK\_STRUCT\_START\_DEAD}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a34d24198e300397918a4fe8fe9b0e6d4}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a34d24198e300397918a4fe8fe9b0e6d4}} 
+\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+STRUCT\+\_\+\+START\+\_\+\+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_CANARY\_STACK\_STRUCT\_END\_DEAD@{\_ERROR\_CANARY\_STACK\_STRUCT\_END\_DEAD}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_CANARY\_STACK\_STRUCT\_END\_DEAD@{\_ERROR\_CANARY\_STACK\_STRUCT\_END\_DEAD}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a313c524aab001bbc65de0aaf61592e3f}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a313c524aab001bbc65de0aaf61592e3f}} 
+\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+STRUCT\+\_\+\+END\+\_\+\+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_CANARY\_STACK\_DATA\_START\_DEAD@{\_ERROR\_CANARY\_STACK\_DATA\_START\_DEAD}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_CANARY\_STACK\_DATA\_START\_DEAD@{\_ERROR\_CANARY\_STACK\_DATA\_START\_DEAD}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a6cb87c358e947321ed731bcb3f0b209c}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a6cb87c358e947321ed731bcb3f0b209c}} 
+\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+DATA\+\_\+\+START\+\_\+\+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_CANARY\_STACK\_DATA\_END\_DEAD@{\_ERROR\_CANARY\_STACK\_DATA\_END\_DEAD}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_CANARY\_STACK\_DATA\_END\_DEAD@{\_ERROR\_CANARY\_STACK\_DATA\_END\_DEAD}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a42ed20a8e35a889c73a7e85f19f5d243}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a42ed20a8e35a889c73a7e85f19f5d243}} 
+\+\_\+\+ERROR\+\_\+\+CANARY\+\_\+\+STACK\+\_\+\+DATA\+\_\+\+END\+\_\+\+DEAD&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_HASH\_STRUCT\_CHANGED@{\_ERROR\_HASH\_STRUCT\_CHANGED}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_HASH\_STRUCT\_CHANGED@{\_ERROR\_HASH\_STRUCT\_CHANGED}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abbd94455afd5a36c4a774a1f4a6ac5fb}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0abbd94455afd5a36c4a774a1f4a6ac5fb}} 
+\+\_\+\+ERROR\+\_\+\+HASH\+\_\+\+STRUCT\+\_\+\+CHANGED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\_ERROR\_HASH\_DATA\_CHANGED@{\_ERROR\_HASH\_DATA\_CHANGED}!stack\_lib.h@{stack\_lib.h}}\index{stack\_lib.h@{stack\_lib.h}!\_ERROR\_HASH\_DATA\_CHANGED@{\_ERROR\_HASH\_DATA\_CHANGED}}}\mbox{\Hypertarget{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0e1805012d4a594e504617c52bcb9b41}\label{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0e1805012d4a594e504617c52bcb9b41}} 
+\+\_\+\+ERROR\+\_\+\+HASH\+\_\+\+DATA\+\_\+\+CHANGED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00034}{34}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{stack__lib_8h_a396b1cf1481e42e4016cea85946e4c33}\label{stack__lib_8h_a396b1cf1481e42e4016cea85946e4c33}} 
+\index{stack\_lib.h@{stack\_lib.h}!CheckIsWasAlreadyConstract@{CheckIsWasAlreadyConstract}}
+\index{CheckIsWasAlreadyConstract@{CheckIsWasAlreadyConstract}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{CheckIsWasAlreadyConstract()}{CheckIsWasAlreadyConstract()}}
+{\footnotesize\ttfamily bool Check\+Is\+Was\+Already\+Constract (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00040}{40}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a396b1cf1481e42e4016cea85946e4c33_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a396b1cf1481e42e4016cea85946e4c33_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a4a20225eac6637302423319ad4e5ce79}\label{stack__lib_8h_a4a20225eac6637302423319ad4e5ce79}} 
+\index{stack\_lib.h@{stack\_lib.h}!DataPoisonElemsInizialize@{DataPoisonElemsInizialize}}
+\index{DataPoisonElemsInizialize@{DataPoisonElemsInizialize}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{DataPoisonElemsInizialize()}{DataPoisonElemsInizialize()}}
+{\footnotesize\ttfamily void Data\+Poison\+Elems\+Inizialize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$}]{start,  }\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} $\ast$}]{end }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00240}{240}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a4a20225eac6637302423319ad4e5ce79_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a4a20225eac6637302423319ad4e5ce79_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_aa40a56ca0e905cf3b8696cc9f9bd045c}\label{stack__lib_8h_aa40a56ca0e905cf3b8696cc9f9bd045c}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackAbort@{StackAbort}}
+\index{StackAbort@{StackAbort}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackAbort()}{StackAbort()}}
+{\footnotesize\ttfamily void Stack\+Abort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00437}{437}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_aa40a56ca0e905cf3b8696cc9f9bd045c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_aa40a56ca0e905cf3b8696cc9f9bd045c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_adbb82e6e8bd649843ce849016e336737}\label{stack__lib_8h_adbb82e6e8bd649843ce849016e336737}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackConstructor\_@{StackConstructor\_}}
+\index{StackConstructor\_@{StackConstructor\_}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackConstructor\_()}{StackConstructor\_()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Constructor\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$stack }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00004}{4}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_adbb82e6e8bd649843ce849016e336737_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a44b2c6049b3e7a303080602658b87419}\label{stack__lib_8h_a44b2c6049b3e7a303080602658b87419}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackDataAllocation@{StackDataAllocation}}
+\index{StackDataAllocation@{StackDataAllocation}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackDataAllocation()}{StackDataAllocation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Data\+Allocation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00154}{154}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a44b2c6049b3e7a303080602658b87419_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=319pt]{stack__lib_8h_a44b2c6049b3e7a303080602658b87419_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a2dfa3bf40e4c0a801fb726753fcd262c}\label{stack__lib_8h_a2dfa3bf40e4c0a801fb726753fcd262c}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackDestructor@{StackDestructor}}
+\index{StackDestructor@{StackDestructor}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackDestructor()}{StackDestructor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Destructor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00071}{71}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a2dfa3bf40e4c0a801fb726753fcd262c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=285pt]{stack__lib_8h_a2dfa3bf40e4c0a801fb726753fcd262c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a29a97f9c2b81910070aa2136579802c8}\label{stack__lib_8h_a29a97f9c2b81910070aa2136579802c8}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackDump@{StackDump}}
+\index{StackDump@{StackDump}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackDump()}{StackDump()}}
+{\footnotesize\ttfamily void Stack\+Dump (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} err\+\_\+ }]{DEBUG\+\_\+\+CODE\+\_\+\+ADD, LOCATION location\+\_\+call }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00516}{516}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a29a97f9c2b81910070aa2136579802c8_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a29a97f9c2b81910070aa2136579802c8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_ad27fb496f979be96d1376ae375c9f097}\label{stack__lib_8h_ad27fb496f979be96d1376ae375c9f097}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackGetTextError@{StackGetTextError}}
+\index{StackGetTextError@{StackGetTextError}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackGetTextError()}{StackGetTextError()}}
+{\footnotesize\ttfamily const char $\ast$ Stack\+Get\+Text\+Error (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}}}]{err }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00442}{442}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_ad27fb496f979be96d1376ae375c9f097_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}\label{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackPop@{StackPop}}
+\index{StackPop@{StackPop}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackPop()}{StackPop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} Stack\+Pop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00119}{119}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_aeeb4757422de12a9db0c651d3d097cf4_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}\label{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackPush@{StackPush}}
+\index{StackPush@{StackPush}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackPush()}{StackPush()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack,  }\item[{\mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}}}]{val }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a3ac4b4a7e3a4a6cb57148800815090e6_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2}\label{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackTop@{StackTop}}
+\index{StackTop@{StackTop}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackTop()}{StackTop()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_ac409d8fc044e157d8ddac78efd4a0ffc}{Stack\+Elem\+\_\+t}} Stack\+Top (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00143}{143}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stack__lib_8h_a5dd117afa63e81cc1a4c848539244ad2_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{stack__lib_8h_a5380e68d1c151f4c92f3261455ecfee1}\label{stack__lib_8h_a5380e68d1c151f4c92f3261455ecfee1}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackTypeOK@{StackTypeOK}}
+\index{StackTypeOK@{StackTypeOK}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackTypeOK()}{StackTypeOK()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Type\+OK (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8cpp_source_l00258}{258}} of file \mbox{\hyperlink{stack__lib_8cpp_source}{stack\+\_\+lib.\+cpp}}.
+
+\mbox{\Hypertarget{stack__lib_8h_af180d647b5760d62e11489848ea8c4f8}\label{stack__lib_8h_af180d647b5760d62e11489848ea8c4f8}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackTypeOKCanaryProtection@{StackTypeOKCanaryProtection}}
+\index{StackTypeOKCanaryProtection@{StackTypeOKCanaryProtection}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackTypeOKCanaryProtection()}{StackTypeOKCanaryProtection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Type\+OKCanary\+Protection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stack__lib_8h_adacf9571e4048a5d32c4354ca5738f81}\label{stack__lib_8h_adacf9571e4048a5d32c4354ca5738f81}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackTypeOKHashProtection@{StackTypeOKHashProtection}}
+\index{StackTypeOKHashProtection@{StackTypeOKHashProtection}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackTypeOKHashProtection()}{StackTypeOKHashProtection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Type\+OKHash\+Protection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{stack__lib_8h_a08d5e38164aafb93e56fbb2cd8f06848}\label{stack__lib_8h_a08d5e38164aafb93e56fbb2cd8f06848}} 
+\index{stack\_lib.h@{stack\_lib.h}!StackTypeOKStandartProtection@{StackTypeOKStandartProtection}}
+\index{StackTypeOKStandartProtection@{StackTypeOKStandartProtection}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{StackTypeOKStandartProtection()}{StackTypeOKStandartProtection()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{stack__lib_8h_a42cf5ff2ddac8acd8d3c6eefeeb19ff0}{Type\+Error}} Stack\+Type\+OKStandart\+Protection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_stack__t}{Stack\+\_\+t}} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{stack__lib_8h_ad729eaf58a5161c554f9fbc33f07aeed}\label{stack__lib_8h_ad729eaf58a5161c554f9fbc33f07aeed}} 
+\index{stack\_lib.h@{stack\_lib.h}!CANARY\_DEFAULT\_DATA\_END@{CANARY\_DEFAULT\_DATA\_END}}
+\index{CANARY\_DEFAULT\_DATA\_END@{CANARY\_DEFAULT\_DATA\_END}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_DEFAULT\_DATA\_END}{CANARY\_DEFAULT\_DATA\_END}}
+{\footnotesize\ttfamily const unsigned long long CANARY\+\_\+\+DEFAULT\+\_\+\+DATA\+\_\+\+END = 0x7\+A0254\+E4}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00085}{85}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_afd50af68c4f5881af2f6f4d2ce5bcc4e}\label{stack__lib_8h_afd50af68c4f5881af2f6f4d2ce5bcc4e}} 
+\index{stack\_lib.h@{stack\_lib.h}!CANARY\_DEFAULT\_DATA\_START@{CANARY\_DEFAULT\_DATA\_START}}
+\index{CANARY\_DEFAULT\_DATA\_START@{CANARY\_DEFAULT\_DATA\_START}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_DEFAULT\_DATA\_START}{CANARY\_DEFAULT\_DATA\_START}}
+{\footnotesize\ttfamily const unsigned long long CANARY\+\_\+\+DEFAULT\+\_\+\+DATA\+\_\+\+START = 0x813794\+E5}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00084}{84}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a838e4d1938b0a649739f2e6f3a265380}\label{stack__lib_8h_a838e4d1938b0a649739f2e6f3a265380}} 
+\index{stack\_lib.h@{stack\_lib.h}!CANARY\_DEFAULT\_STRUCT\_END@{CANARY\_DEFAULT\_STRUCT\_END}}
+\index{CANARY\_DEFAULT\_STRUCT\_END@{CANARY\_DEFAULT\_STRUCT\_END}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_DEFAULT\_STRUCT\_END}{CANARY\_DEFAULT\_STRUCT\_END}}
+{\footnotesize\ttfamily const unsigned long long CANARY\+\_\+\+DEFAULT\+\_\+\+STRUCT\+\_\+\+END = 0x7350\+C11E}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00082}{82}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+
+\mbox{\Hypertarget{stack__lib_8h_a21bd665976609ecd44d86c82a87160a3}\label{stack__lib_8h_a21bd665976609ecd44d86c82a87160a3}} 
+\index{stack\_lib.h@{stack\_lib.h}!CANARY\_DEFAULT\_STRUCT\_START@{CANARY\_DEFAULT\_STRUCT\_START}}
+\index{CANARY\_DEFAULT\_STRUCT\_START@{CANARY\_DEFAULT\_STRUCT\_START}!stack\_lib.h@{stack\_lib.h}}
+\doxysubsubsection{\texorpdfstring{CANARY\_DEFAULT\_STRUCT\_START}{CANARY\_DEFAULT\_STRUCT\_START}}
+{\footnotesize\ttfamily const unsigned long long CANARY\+\_\+\+DEFAULT\+\_\+\+STRUCT\+\_\+\+START = 0x5\+C4\+F2\+EB5}
+
+
+
+Definition at line \mbox{\hyperlink{stack__lib_8h_source_l00081}{81}} of file \mbox{\hyperlink{stack__lib_8h_source}{stack\+\_\+lib.\+h}}.
+

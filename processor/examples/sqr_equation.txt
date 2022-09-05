@@ -1,0 +1,114 @@
+STROUT InputKoefA
+IN ax ;a - coef of equation
+STROUT InputKoefB
+IN bx ;b - coef of equation
+STROUT InputKoefC
+IN cx ;c - coef of equation
+CALL SolveQuadro
+HLT
+
+SolveQuadro:
+    PUSH 0
+	PUSH ax
+	JNE withA
+	PUSH 0
+	PUSH bx
+	JNE withB
+	PUSH 0
+	PUSH cx
+	JNE withC
+	STROUT MSolv
+	HLT
+
+withA:
+    CALL CalcD
+    PUSH 0
+    PUSH dx
+    JA DISCLessZero
+	STROUT TwoSolv
+    CALL CALCXplus
+    CALL CALCXminus
+	HLT
+
+withB:
+	JMP MinusCdivB
+
+withC:
+	STROUT ZeroSolv
+	HLT
+
+CalcD:
+	PUSH bx
+	PUSH bx
+	MUL
+	PUSH 4
+	PUSH ax
+	PUSH cx
+	MUL
+	MUL
+	SUB
+	POP dx
+	RET
+
+DISCLessZero:
+	STROUT ZeroSolv
+	HLT
+
+CALCXplus:
+	PUSH -1
+	PUSH bx
+	MUL
+	PUSH dx
+	SQRT
+	ADD
+	PUSH 2
+	PUSH ax
+	MUL
+	DIV
+	OUT
+	RET
+
+CALCXminus:
+	PUSH -1
+	PUSH bx
+	MUL
+	PUSH dx
+	SQRT
+	SUB
+	PUSH 2
+	PUSH ax
+	MUL
+	DIV
+	OUT
+	RET
+
+MinusCdivB:
+	PUSH -1
+	PUSH cx
+	MUL
+	PUSH bx
+	DIV
+	STROUT OneSolv
+	OUT
+	HLT
+
+InputKoefA:
+    DB $Input a coefficent: $
+
+InputKoefB:
+    DB $Input b coefficent: $
+
+InputKoefC:
+    DB $Input c coefficent: $
+
+ZeroSolv:
+    DB $Equation has 0 solve$
+
+OneSolv:
+    DB $Equation has 1 solve:$
+
+TwoSolv:
+    DB $Equation has 2 solves:$
+
+MSolv:
+    DB $Equation has inf solves:$

@@ -1,0 +1,74 @@
+\hypertarget{base__lib_8cpp_source}{}\doxysection{base\+\_\+lib.\+cpp}
+\label{base__lib_8cpp_source}\index{processor/base\_lib/base\_lib.cpp@{processor/base\_lib/base\_lib.cpp}}
+\mbox{\hyperlink{base__lib_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{base__lib_8h}{base\_lib.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#ifdef \_\_linux\_\_}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00004}00004     \textcolor{keywordtype}{bool} \_IsBadReadPtr\_\_(\textcolor{keywordtype}{void}* pointer, \textcolor{keywordtype}{size\_t} size) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00005}00005         \textcolor{keywordtype}{int} nullfd = open(\textcolor{stringliteral}{"{}/dev/random"{}}, O\_WRONLY);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00007}00007         \textcolor{keywordflow}{if} (write(nullfd, pointer, size) < 0) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00008}00008             \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00009}00009         \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00010}00010         close(nullfd);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00012}00012         \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00013}00013     \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#elif \_WIN32}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00015}00015     \textcolor{keywordtype}{bool} \_IsBadReadPtr\_\_(\textcolor{keywordtype}{void}* pointer) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00016}00016         MEMORY\_BASIC\_INFORMATION mbi = \{ 0 \};}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00017}00017         \textcolor{keywordflow}{if} (::VirtualQuery(pointer, \&mbi, \textcolor{keyword}{sizeof}(mbi))) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00018}00018             DWORD mask = (PAGE\_READONLY | PAGE\_READWRITE | PAGE\_WRITECOPY | PAGE\_EXECUTE\_READ | PAGE\_EXECUTE\_READWRITE | PAGE\_EXECUTE\_WRITECOPY);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00019}00019             \textcolor{keywordtype}{bool} b = !(mbi.Protect \& mask);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00021}00021             \textcolor{comment}{// check the page is not a guard page}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00022}00022             \textcolor{keywordflow}{if} (mbi.Protect \& (PAGE\_GUARD | PAGE\_NOACCESS)) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00023}00023                 b = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00024}00024             \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00026}00026             \textcolor{keywordflow}{return} b;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00027}00027         \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00029}00029         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00030}00030     \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00031}00031 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00033}00033 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00034}00034  }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00035}00035 \textcolor{preprocessor}{\#ifdef \_WIN32}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00036}00036     \textcolor{keywordtype}{int} file\_cmp(\textcolor{keyword}{const} \textcolor{keywordtype}{char}* first\_file, \textcolor{keyword}{const} \textcolor{keywordtype}{char}* second\_file) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00037}00037         \textcolor{keyword}{struct }\_stat first\_stat;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00038}00038         \textcolor{keyword}{struct }\_stat second\_stat;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00039}00039         \_stat(first\_file, \&first\_stat);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00040}00040         \_stat(second\_file, \&second\_stat);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00041}00041         \textcolor{keywordflow}{if} (first\_stat.st\_mtime < second\_stat.st\_mtime) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00042}00042             \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00043}00043         \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00044}00044         \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00045}00045             \textcolor{keywordflow}{if} (first\_stat.st\_mtime > second\_stat.st\_mtime) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00046}00046                 \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00047}00047             \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00048}00048             \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00049}00049                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00050}00050             \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00051}00051         \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00052}00052     \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00053}00053 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00054}00054       }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00055}00055 \textcolor{comment}{/*-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00057}\mbox{\hyperlink{base__lib_8cpp_a4b4fbcdf65d0a7acc52eadd0083fe672}{00057}} \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} \mbox{\hyperlink{base__lib_8cpp_a4b4fbcdf65d0a7acc52eadd0083fe672}{getFileSize}}(FILE* file) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00058}00058     assert(file != \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00059}00059     \textcolor{keywordflow}{if} (file == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00060}00060         \textcolor{keywordflow}{return} -\/1;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00061}00061     \}}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00063}00063     fseek(file, 0L, SEEK\_END);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00064}00064     \textcolor{keywordtype}{long} \textcolor{keywordtype}{long} sz = ftell(file);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00065}00065     rewind(file);}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00067}00067     \textcolor{keywordflow}{return} sz;}
+\DoxyCodeLine{\Hypertarget{base__lib_8cpp_source_l00068}00068 \}}
+
+\end{DoxyCode}

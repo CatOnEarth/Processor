@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['_5ferror_5fcanary_5fstack_5fdata_5fend_5fdead_0',['_ERROR_CANARY_STACK_DATA_END_DEAD',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a42ed20a8e35a889c73a7e85f19f5d243',1,'stack_lib.h']]],
+  ['_5ferror_5fcanary_5fstack_5fdata_5fstart_5fdead_1',['_ERROR_CANARY_STACK_DATA_START_DEAD',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a6cb87c358e947321ed731bcb3f0b209c',1,'stack_lib.h']]],
+  ['_5ferror_5fcanary_5fstack_5fstruct_5fend_5fdead_2',['_ERROR_CANARY_STACK_STRUCT_END_DEAD',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a313c524aab001bbc65de0aaf61592e3f',1,'stack_lib.h']]],
+  ['_5ferror_5fcanary_5fstack_5fstruct_5fstart_5fdead_3',['_ERROR_CANARY_STACK_STRUCT_START_DEAD',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a34d24198e300397918a4fe8fe9b0e6d4',1,'stack_lib.h']]],
+  ['_5ferror_5fcapacity_5fcant_5fbe_5flow_5fdefault_4',['_ERROR_CAPACITY_CANT_BE_LOW_DEFAULT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0abce0e7031e207343f29b4fe1397a3a5d',1,'stack_lib.h']]],
+  ['_5ferror_5fhash_5fdata_5fchanged_5',['_ERROR_HASH_DATA_CHANGED',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0e1805012d4a594e504617c52bcb9b41',1,'stack_lib.h']]],
+  ['_5ferror_5fhash_5fstruct_5fchanged_6',['_ERROR_HASH_STRUCT_CHANGED',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0abbd94455afd5a36c4a774a1f4a6ac5fb',1,'stack_lib.h']]],
+  ['_5ferror_5finizialize_5fdata_7',['_ERROR_INIZIALIZE_DATA',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0afdfca6ccadda1d1e92165a7c650a549c',1,'stack_lib.h']]],
+  ['_5ferror_5fnull_5fobj_8',['_ERROR_NULL_OBJ',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a0db6107484da4192cc09d9eb0cb71e4b',1,'stack_lib.h']]],
+  ['_5ferror_5fnull_5fpointer_5fdata_9',['_ERROR_NULL_POINTER_DATA',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0aa7217adee1f2a9690728e09b653b7b76',1,'stack_lib.h']]],
+  ['_5ferror_5fpoison_5felem_5fstack_5fdata_10',['_ERROR_POISON_ELEM_STACK_DATA',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae4f3db88929bb6e43f584115863ccf93',1,'stack_lib.h']]],
+  ['_5ferror_5fpop_5fon_5fempty_5fstack_11',['_ERROR_POP_ON_EMPTY_STACK',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0abf48af25eb434a8f3119824aa35a2c49',1,'stack_lib.h']]],
+  ['_5ferror_5frepeat_5fconstract_12',['_ERROR_REPEAT_CONSTRACT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a54984c67000c600c0a7e1bd583a0fa66',1,'stack_lib.h']]],
+  ['_5ferror_5frepeat_5fdestruct_13',['_ERROR_REPEAT_DESTRUCT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a2f91190398e362333acf48ba1664a768',1,'stack_lib.h']]],
+  ['_5ferror_5fsegmentation_5ffault_14',['_ERROR_SEGMENTATION_FAULT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0ae1ef83bb274096efa8dbe451f9ae193f',1,'stack_lib.h']]],
+  ['_5ferror_5fsize_5fbigger_5fcapacity_15',['_ERROR_SIZE_BIGGER_CAPACITY',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0adb9798ca7bb0929eb47a0e940a4e3540',1,'stack_lib.h']]],
+  ['_5ferror_5fsize_5fminus_16',['_ERROR_SIZE_MINUS',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a4a17da03bf63a61b91fdb1a6f1eeb506',1,'stack_lib.h']]],
+  ['_5ferror_5fstack_5fdestruct_17',['_ERROR_STACK_DESTRUCT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0af94fc70c2171b1a6952dc6d510dd9600',1,'stack_lib.h']]],
+  ['_5ferror_5fstack_5fnot_5fconstract_18',['_ERROR_STACK_NOT_CONSTRACT',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a7d9ec6e1b5cc0be1dcdf68c4e0b372ce',1,'stack_lib.h']]],
+  ['_5ferror_5ftop_5fon_5fempty_5fstack_19',['_ERROR_TOP_ON_EMPTY_STACK',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a27f627bb83860524ac5b0c5bb8006fda',1,'stack_lib.h']]],
+  ['_5fsuccessful_20',['_SUCCESSFUL',['../stack__lib_8h.html#a42cf5ff2ddac8acd8d3c6eefeeb19ff0a51e75405b85142dd14963f70209d54d9',1,'stack_lib.h']]]
+];

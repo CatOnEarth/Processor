@@ -1,0 +1,70 @@
+PUSH 0
+POP ax;cur x
+PUSH 0
+POP bx;cur y
+PUSH 900; radious
+POP cx
+PUSH 300;max x window
+POP [0]
+PUSH 300;max y window
+POP [1]
+PUSH 150; x centre
+POP [2]
+PUSH 150; y centre
+POP [3]
+CALL PrintCircle
+GRAPH
+HLT
+
+PrintCircle:	
+	CALL PereborX
+	PUSH ax
+	PUSH 1
+	ADD
+	POP ax
+	PUSH ax
+	PUSH [0]
+	JBE PrintCircle
+	PUSH bx
+	PUSH 1
+	ADD
+	POP bx
+	PUSH 0
+	POP ax
+	PUSH bx
+	PUSH [1]
+	JBE PrintCircle
+	RET
+
+PereborX:
+	PUSH ax
+	PUSH [2]
+	SUB
+	PUSH ax
+	PUSH [2]
+	SUB
+	MUL
+	PUSH bx
+	PUSH [3]
+	SUB
+	PUSH bx
+	PUSH [3]
+	SUB
+	MUL
+	ADD
+	PUSH cx
+	JBE SetColor
+	RET
+SetColor:
+	PUSH 1024
+	PUSH ax
+	PUSH bx
+	PUSH [0]
+	MUL
+	ADD
+	ADD
+	POP dx
+	PUSH 1
+	POP [dx]
+	RET
+	
